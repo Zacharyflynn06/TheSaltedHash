@@ -1,7 +1,15 @@
-<h1>Create Account</h1>
+<h1>Create an Account!</h1>
 
 <form method="POST" action="/signup">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="date" placeholder="Date of Birth">
+    <label for="username">Username:</label>
+        <input type="text" name="user[username]" placeholder="Username"><br><br>
+    <label for="email">Email:</label>
+        <input type="email" name="user[email]" placeholder="Email"><br><br>
+    <label for="password">Password:</label>
+        <input type="password" name="user[password]" placeholder="Password"><br><br>
+    <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm" placeholder="Confirm"><br><br>
+    <label for="Date of Birth">Date of Birth:</label>
+        <input type="date" name="user[dob]" placeholder="Date of Birth"><br><br>
+    <input type="submit" value="Sign Up!">
 </form>
