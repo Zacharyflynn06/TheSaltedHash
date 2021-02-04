@@ -7,8 +7,7 @@ class UserController < ApplicationController
 
     # create session/log a user in
     post '/signup' do
-        puts params
-
+        binding.pry
         if params[:user].values.any? {|value| value == ""}
             redirect '/signup'
         else
@@ -19,6 +18,7 @@ class UserController < ApplicationController
                 redirect '/signup'
             end
         end
-
     end
+
+
 end
