@@ -7,4 +7,5 @@ end
 
 use UserController
 use SessionController
+use PostController
 run ApplicationController

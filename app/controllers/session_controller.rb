@@ -12,7 +12,7 @@ class SessionController < ApplicationController
 		user = User.find_by(:username => params[:username])
 		if user 
 			session[:user_id] = user.id
-			redirect "/success"
+			redirect "/user/index"
 		else
 			redirect "failure"
 		end
