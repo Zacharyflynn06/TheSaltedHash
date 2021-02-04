@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-    
+
 
     #login + 
     get '/login' do
