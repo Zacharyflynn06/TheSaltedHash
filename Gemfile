@@ -8,6 +8,7 @@ gem 'require_all'
 gem 'thin'
 gem 'shotgun'
 gem 'bcrypt'
+gem "dotenv"
 
 group :development do
 
@@ -24,4 +25,4 @@ group :test do
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
 
-gem "dotenv", "~> 2.7"
+

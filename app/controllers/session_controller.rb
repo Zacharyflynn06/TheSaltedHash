@@ -10,11 +10,11 @@ class SessionController < ApplicationController
     # log a user in
 	post "/login" do
 		user = User.find_by(:username => params[:username])
-		if user 
+		if user
 			session[:user_id] = user.id
-			redirect "/user/index"
+			redirect "/success"
 		else
-			redirect "failure"
+			redirect "/failure"
 		end
 	end
 
