@@ -9,20 +9,17 @@ class UserController < ApplicationController
     post '/signup' do
         puts params
 
-        User.create(params[:user])
-
-        # if (!params[:user][:email] = "") && (!params[:user][:password] = "") && (params[:user][:password] == params[:confirm])
-
-        # end
-
-        
-
-        # User.create(
-        #     username: params[:user][:username], 
-        #     password: params[:user][:password],
-        #     email: params[:user][:email],
-        #     dob: params[:user][:dob])
-
+        if params[:user].values.any? {|value| value == ""}
+            redirect '/failure'
+        else
+            if params[:user][:password] == params[:confirm]
+                # User.create(params[:user])
+                puts "YAY"
+                redirect '/login'
+            else
+                redirect '/failure'
+            end
+        end
 
     end
 end

@@ -13,4 +13,8 @@ class ApplicationController < Sinatra::Base
     "hello World"
   end
 
+  get "/failure" do
+    erb :failure
+  end
+
 end

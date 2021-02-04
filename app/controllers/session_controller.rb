@@ -8,7 +8,7 @@ class SessionController < ApplicationController
 
     # create session/log a user in
     post '/login' do
-
+        
     end
 
     #logout
