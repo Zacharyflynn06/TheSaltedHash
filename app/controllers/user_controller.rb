@@ -9,7 +9,11 @@ class UserController < ApplicationController
     post '/signup' do
         puts params
 
-        User.create(params)
+        User.create(
+            username: params[:user][:username], 
+            password: params[:user][:password],
+            email: params[:user][:email],
+            dob: params[:user][:dob])
 
         # if (!params[:user][:email] = "") && (!params[:user][:password] = "") && (params[:user][:password] == params[:confirm])
         #     User.create(username: params[:users][:username])
