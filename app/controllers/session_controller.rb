@@ -3,7 +3,7 @@ class SessionController < ApplicationController
 
     #login + 
     get '/login' do
-
+        erb :'sessions/new'
     end
 
     # create session/log a user in
