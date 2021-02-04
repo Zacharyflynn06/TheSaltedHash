@@ -10,14 +10,13 @@ class UserController < ApplicationController
         puts params
 
         if params[:user].values.any? {|value| value == ""}
-            redirect '/failure'
+            redirect '/signup'
         else
             if params[:user][:password] == params[:confirm]
-                # User.create(params[:user])
-                puts "YAY"
+                User.create(params[:user])
                 redirect '/login'
             else
-                redirect '/failure'
+                redirect '/signup'
             end
         end
 
