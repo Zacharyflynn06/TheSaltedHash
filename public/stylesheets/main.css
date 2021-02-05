@@ -20,6 +20,11 @@
     text-align: center;
   }
 
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .wrapper {
     background: #f4f5db;
     box-shadow: 0 0 50px #23689b;
@@ -68,7 +73,7 @@
 
  }
   .post{
-    text-align: left;
+    text-align: center;
   }
 
   h1 {

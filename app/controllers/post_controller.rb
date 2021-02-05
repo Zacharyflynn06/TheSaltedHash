@@ -10,13 +10,13 @@ class PostController < ApplicationController
     end
 
     post '/posts' do
-        puts params
         binding.pry
         @post = Post.create(
             title: params[:posts][:title], 
             content: params[:posts][:content],
-            date: DateTime.now
+            user_id: session[:user_id]
         )
+        redirect '/posts'
     end
 
     #show
