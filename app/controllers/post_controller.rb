@@ -11,7 +11,12 @@ class PostController < ApplicationController
 
     post '/posts' do
         puts params
-        @post = Post.create(title: params[:title], conent: params[:content])
+        binding.pry
+        @post = Post.create(
+            title: params[:posts][:title], 
+            content: params[:posts][:content],
+            date: DateTime.now
+        )
     end
 
     #show

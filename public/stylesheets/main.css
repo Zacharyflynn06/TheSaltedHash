@@ -31,7 +31,7 @@
   }
 
   .custom-button {
-    background-color: #487e95; /* Green */
+    background-color: #487e95;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -41,14 +41,25 @@
     font-size: 14px;
     border-radius: 25px;
   }
+  a.button {
+    background-color: #487e95;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 25px;
+
+  }
 
   .custom-form {
-    width: 150px;
+    width: 200px;
     padding: 10px;
     color: black;
     position: relative;
     border-radius: 10px;
-    
   }
 
   ::-webkit-input-placeholder {
