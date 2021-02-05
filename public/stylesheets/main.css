@@ -17,18 +17,46 @@
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    text-align: center;
   }
 
   .wrapper {
     background: #f4f5db;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 50px #23689b;
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+    border-radius: 20px;
   }
+
+  .custom-button {
+    background-color: #487e95; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+
+  .custom-form {
+    width: 150px;
+    padding: 10px;
+    color: black;
+    position: relative;
+    border-radius: 10px;
+    
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+    color: #23689b;
+
+ }
+  
 
   h1 {
     font-size: 36px;

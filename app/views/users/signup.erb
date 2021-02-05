@@ -1,24 +1,26 @@
 <h1>Create an Account!</h1>
 
-<div class="form-container">
+<div >
     <form method="POST" action="/signup">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" name="user[username]" id="sername"><br><br>
+        <div>
+            <h3><label for="username">Username:</label></h3>
+            <input class="custom-form" type="text" name="user[username]">
         </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" name="user[email]" id="email"><br><br>
+        <div>
+            <h3><label for="email">Email:</label></h3>
+            <input class="custom-form" type="email" name="user[email]">
         </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" name="user[password]" id="password"><br><br>
+        <div>
+            <h3><label for="password">Password:</label></h3>
+            <input class="custom-form" type="password" name="user[password]">
         </div>
-        <div class="form-group">
-            <label for="password-confirmation">Confirm Password:</label>
-            <input type="password" class="form-control" name="user[password_confirmation" id="confirm"><br><br>
+        <div>
+            <h3><label for="password-confirmation">Confirm Password:</label></h3>
+            <input class="custom-form" type="password" name="user[password_confirmation"><br><br>
         </div>
-            <button type="button" class="btn btn-primary">Sign Up!</button>
+        <div>
+            <button type="button" class="custom-button">Sign Up!</button>
+        </div>
     </form>
 
 </div>
