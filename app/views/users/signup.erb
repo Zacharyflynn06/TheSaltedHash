@@ -1,0 +1,24 @@
+<h1>Create an Account!</h1>
+
+<div class="form-container">
+    <form method="POST" action="/signup">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="user[username]" placeholder="Username"><br><br>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="user[email]" placeholder="Email"><br><br>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="user[password]" placeholder="Password"><br><br>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" class="form-control" name="confirm" placeholder="Confirm"><br><br>
+        </div>
+            <input type="submit" value="Sign Up!">
+    </form>
+
+</div>
