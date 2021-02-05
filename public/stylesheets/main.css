@@ -67,7 +67,9 @@
     color: #23689b;
 
  }
-  
+  .post{
+    text-align: left;
+  }
 
   h1 {
     font-size: 36px;
