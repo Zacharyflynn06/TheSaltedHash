@@ -1,2 +1,10 @@
 <h3><%= @post.title %></h3>
 <p><%= @post.content %></p>
+
+
+<% if @post.user_id == session["user_id"] %>
+
+    <form method="POST" action="/postes/<%= @note.id %>">
+        <input type="hidden" value="DELETE" name="_method">
+        <input type="submit" value="delete">
+    </form>
