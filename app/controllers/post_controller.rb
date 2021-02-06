@@ -49,4 +49,12 @@ class PostController < ApplicationController
             post.update(params["post"])
             redirect "/posts/#{post.id}"
     end
+
+    delete '/posts/:id' do
+        redirect_if_not_logged_in
+        # redirect_error_if_not_authorized
+        post = Post.find(params[:id])
+        post.delete
+        redirect "/posts"
+    end
 end
