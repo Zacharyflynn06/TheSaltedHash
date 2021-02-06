@@ -7,7 +7,6 @@ class UserController < ApplicationController
 
     # create session/log a user in
     post '/signup' do
-        binding.pry
         user = User.create(params[:user])
         puts params
         if user.valid?

@@ -72,8 +72,8 @@
     color: #23689b;
 
  }
-  .post{
-    text-align: center;
+  div.post{
+    text-align: left;
   }
 
   h1 {

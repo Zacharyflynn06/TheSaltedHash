@@ -1,10 +1,10 @@
-<h1>Here are all the posts</h1>
+<h1>Here are all of your posts!</h1>
 
 <div class="post">
-    <% @posts.each do |post|%>
+    <% @user_posts.each do |post|%>
         <h3><%= post.title %></h3>
         <p><%= post.content %></p>
-        <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
+        <h4>Author: <%= post.user.first_name %> <%=post.user.last_name%></h4>
         <h6>Created on: <%=post.created_at %></h6>
         <hr>
     <% end %>
