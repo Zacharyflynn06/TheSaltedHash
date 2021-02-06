@@ -11,11 +11,11 @@ class UserController < ApplicationController
         user = User.create(params[:user])
         puts params
         if user.valid?
-            flash[:success] = "Success"
+            #flash[:success] = "Success"
             session["user_id"] = user.id
             redirect '/posts'
         else
-            flash[:error] = "Something went wrong"
+            #flash[:error] = "Something went wrong"
             redirect '/signup'
         end
     end

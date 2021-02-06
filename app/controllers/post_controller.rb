@@ -1,8 +1,12 @@
 class PostController < ApplicationController
 
     get '/posts' do
-        @posts = Post.all 
-        erb :"posts/index"
+        # if logged_in?
+            @posts = Post.all 
+            erb :"posts/index"
+        # else
+            # redirect to '/login'
+        # end
     end
 
     get '/posts/new' do
@@ -10,7 +14,6 @@ class PostController < ApplicationController
     end
 
     post '/posts' do
-        binding.pry
         @post = Post.create(
             title: params[:posts][:title], 
             content: params[:posts][:content],
