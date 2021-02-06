@@ -2,17 +2,18 @@
 
 <div class="post">
     <% @posts.each do |post|%>
-    <hr>
-        <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
-        <p><%= post.content %></p>
-        <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
-        <h6>Created on: <%=post.created_at %></h6>
-        <hr>
+        <div class="wrapper">
+            <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+            <p><%= post.content %></p>
+            <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
+            <h6>Created on: <%=post.created_at %></h6>
+        </div>
     <% end %>
+    
 
 </div>
 
 
 <div>
-    <a href="/logout" class="button">Logout</a>   <a href="/posts/new" class="button">New Note</a>
+       <a href="/posts/new" class="button">New Note</a>
 </div>
