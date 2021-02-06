@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div>
+<% if @post.user_id == session["user_id"] %>
    <a href="/posts/<%= @post.id %>/edit" class="button">Edit</a>
-</div>
+<%end%>
 

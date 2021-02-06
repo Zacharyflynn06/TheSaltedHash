@@ -32,7 +32,6 @@ class PostController < ApplicationController
                 content: params[:posts][:content],
                 user_id: session[:user_id]
             )
-            binding.pry
             redirect "/posts/#{post.id}"
 
     end

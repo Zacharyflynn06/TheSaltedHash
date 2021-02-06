@@ -8,19 +8,16 @@
                 <input class="custom-form" type="text" name="post[title]" value=<%= @post.title %>></h4><br>
             <h4><label for="content">Content:</label> <br>
                 <textarea  class="custom-form" name="post[content]"><%= @post.content %></textarea></h4><br>
-        <button type="submit" class="custom-button">Save</button><br>
+        <button type="submit" class="custom-button">Save</button>
     </form>
+    <% if @post.user_id == session["user_id"] %>
+
+        <form method="POST" action="/posts/<%= @post.id %>">
+            <input type="hidden" value="DELETE" name="_method">
+            <input class="custom-button" type="submit" value="Delete Post">
+        </form>
+
+    <%end%>
 </div>
 
-<div>
-    <a href="/logout" class="button">Logout</a>
-</div>
 
-<% if @post.user_id == session["user_id"] %>
-
-    <form method="POST" action="/posts/<%= @post.id %>">
-        <input type="hidden" value="DELETE" name="_method">
-        <input class="custom-button" type="submit" value="Delete Post">
-    </form>
-
-<%end%>
