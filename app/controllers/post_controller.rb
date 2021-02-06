@@ -28,7 +28,7 @@ class PostController < ApplicationController
     get '/posts/:id/edit' do
         redirect_if_not_logged_in
         # redirect_error_if_not_authorized
-            @post = Post.find_by(id: params[:id])
+            @post = Post.find(params[:id])
             erb :"posts/edit"
     end
 
@@ -40,5 +40,13 @@ class PostController < ApplicationController
             user_id: session[:user_id]
         )
         redirect '/posts/#{post.id}'
+    end
+
+    patch '/posts/:id' do
+        redirect_if_not_logged_in
+        #redirect_error_if_not_authorized
+            post = Post.find(params[:id])
+            post.update(params["post"])
+            redirect "/posts/#{post.id}"
     end
 end
