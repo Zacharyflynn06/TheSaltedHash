@@ -34,12 +34,14 @@ class PostController < ApplicationController
 
     post '/posts' do
         redirect_if_not_logged_in
-        @post = Post.create(
-            title: params[:posts][:title], 
-            content: params[:posts][:content],
-            user_id: session[:user_id]
-        )
-        redirect '/posts/#{post.id}'
+            post = Post.create(
+                title: params[:posts][:title], 
+                content: params[:posts][:content],
+                user_id: session[:user_id]
+            )
+            binding.pry
+            redirect "/posts/#{post.id}"
+
     end
 
     patch '/posts/:id' do

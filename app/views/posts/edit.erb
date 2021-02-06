@@ -1,14 +1,15 @@
 <h1>Edit: <%= @post.title %></h1>
 
-<div class="post">
-
-    <form action="/posts/<%= @post.id %>" method="POST" class="form">
-        <input type="hidden" value="PATCH" name="_method">
-        <input type="text" name="post[title]" value=<%= @post.title %>><br>
-        <textarea name="post[content]"><%= @post.content %></textarea><br>
-        <button type="submit" class="custom-button">Save</button>
+<div >
+    <form action="/posts/<%= @post.id %>" method="POST">
+        
+        <input class="form" type="hidden" value="PATCH" name="_method">
+            <h4><label for="title">Title:</label><br>
+                <input class="form" type="text" name="post[title]" value=<%= @post.title %>></h4><br>
+            <h4><label for="content">Content:</label> <br>
+            <textarea  name="post[content]"><%= @post.content %></textarea></h4><br>
+        <button type="submit" class="custom-button">Save</button><br>
     </form>
-
 </div>
 
 <div>
@@ -19,7 +20,7 @@
 
     <form method="POST" action="/posts/<%= @post.id %>">
         <input type="hidden" value="DELETE" name="_method">
-        <input class="custom-button" type="submit" value="delete">
+        <input class="custom-button" type="submit" value="Delete Post">
     </form>
 
 <%end%>
