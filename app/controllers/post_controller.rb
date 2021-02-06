@@ -7,13 +7,6 @@ class PostController < ApplicationController
             erb :"posts/index"
     end
 
-    get '/home' do
-        redirect_if_not_logged_in
-            @user = User.find(session["user_id"])
-            @user_posts = @user.posts
-            erb :"posts/home"  
-    end
-
     get '/posts/new' do
         redirect_if_not_logged_in
             erb :'posts/new'
