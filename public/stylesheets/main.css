@@ -13,8 +13,8 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(9, 42, 53);
-    color: #333;
+    background-color:#00adb5;
+    color: Black;
     font-family: Sans-Serif;
     line-height: 18px;
     text-align: center;
@@ -67,6 +67,7 @@
     border-radius: 10px;
   }
 
+
   ::-webkit-input-placeholder {
     text-align: center;
     color: #23689b;
@@ -74,6 +75,7 @@
  }
   div.post{
     text-align: left;
+    padding: 50px;
   }
 
   h1 {

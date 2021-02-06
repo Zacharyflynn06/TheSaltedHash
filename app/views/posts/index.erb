@@ -2,6 +2,7 @@
 
 <div class="post">
     <% @posts.each do |post|%>
+    <hr>
         <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
         <p><%= post.content %></p>
         <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>

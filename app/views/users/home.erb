@@ -2,13 +2,13 @@
 
 <div class="post">
     <% @user_posts.each do |post|%>
-        <h3><%= post.title %></h3>
+    <div class="wrapper">
+        <h3><a href="/posts/<%= post.id %>"> <%= post.title %></a></h3>
         <p><%= post.content %></p>
         <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
         <h6>Written On: <%=post.created_at %></h6>
-        <hr>
+    </div>
     <% end %>
-
 </div>
 <div>
     <a href="/logout" class="button">Logout</a>   <a href="/posts/new" class="button">New Note</a>
