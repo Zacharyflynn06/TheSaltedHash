@@ -17,12 +17,14 @@
   <body>
   
       <ul class="nav">
+            <li class="nav"><a href="/posts">All Posts</a></li>
         <% if logged_in? %>
-        <li class="nav"><a href="/users/home">Home</a></li>
-        <li class="nav"><a href="/logout">Logout</a></li>
+            <li class="nav"><a href="/users/home">Home</a></li>
+            <li class="nav"><a href="/posts/new">New Post</a></li>
+            <li class="nav"><a href="/logout">Logout</a></li>
+        <%else%>
+            <li class="nav"><a href="/users/home">Login</a></li>
         <%end%>
-        <li class="nav"><a href="/posts">Posts</a></li>
-        <li class="nav"><a href="/posts/new">New Post</a></li>
       </ul>
       
 

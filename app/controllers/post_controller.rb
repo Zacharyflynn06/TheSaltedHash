@@ -2,10 +2,8 @@ class PostController < ApplicationController
 
     #all posts
     get '/posts' do
-        redirect_if_not_logged_in
-        puts current_user
-            @posts = Post.all 
-            erb :"posts/index"
+        @posts = Post.all 
+        erb :"posts/index"
     end
 
     #new post
