@@ -1,23 +1,22 @@
-<h1><%= @post.title %></h1>
 
-<div class="post">
     <div class="wrapper">
-        <h3><%= @post.title %></h3>
+        <h2><%= @post.title %></h2>
         <p><%= @post.content %></p>
     </div>
 
+    <% counter = 1%>
     <% @post.steps.each do |step| %>
         <div class="wrapper">
-            <h2>Step Number <%= step.id %></h2>
+            <h4>Step <%= counter  %></h4>
             <p><%=step.content%></p>
+            <% counter += 1%>
         </div>
-    <% end %>
-        
+        <% end %>
+
+    <div>
         <h6>Author: <%= @post.user.first_name %> <%=@post.user.last_name%></h6>
         <h6>Written On: <%=@post.created_at %></h6>
-        <hr>
     </div>
-</div>
 
 <% if @post.user_id == session["user_id"] %>
    <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit</a>

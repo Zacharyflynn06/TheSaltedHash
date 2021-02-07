@@ -2,25 +2,29 @@
 
 <form action="/posts" method="POST">
 
-    <h4><label for="title">Title:</label><br>
+    <div class="wrapper">
+
+    <h4><label for="title">Title</label><br>
         <input class="custom-form" type="text" name="post[title]"><br>
-    <label for="description">Content:</label> <br>
-         <textarea class="custom-form" name="post[content]" type="text"></textarea></h4>
+    <label for="description">Description</label> <br>
+         <input class="custom-form" name="post[content]" type="text"></h4>
         <br>
+    </div>
 
-    <label for="step[one]">Step One:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-    <label for="step[two]">Step Two:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-    <label for="step[three]">Step Three:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-    <label for="step[four]">Step Four:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-    <label for="step[five]">Step Five:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-    <label for="step[six]">Step Six:</label><br>
-        <input class="custom-form" type="text" name="post[step][][content]"><br><br>
-
+    <div class="wrapper">
+        <label for="step[one]">Step 1</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]"><br><br>
+        <label for="step[two]">Step 2</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]"><br><br>
+        <label for="step[three]">Step 3</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]"><br><br>
+        <label for="step[four]">Step 4</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]"><br><br>
+        <label for="step[five]">Step 5</label><br>
+            <input class="custom-form"  type="text" name="post[step][][content]"><br><br>
+        <label for="step[six]">Step 6</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]"><br><br>
+    </div>
 
     <input class="custom-button" type="submit" value="Submit!">
 </form>
