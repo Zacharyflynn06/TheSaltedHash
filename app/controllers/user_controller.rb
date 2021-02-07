@@ -5,6 +5,11 @@ class UserController < ApplicationController
         erb :'users/signup'
     end
 
+    get '/users' do
+        @users = User.all
+        erb :'users/index'
+    end
+
 
     #user home page
     get '/users/:id' do
