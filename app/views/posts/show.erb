@@ -4,6 +4,14 @@
     <div class="wrapper">
         <h3><%= @post.title %></h3>
         <p><%= @post.content %></p>
+    </div>
+
+    <% @post.steps.each do |step| %>
+        <div class="wrapper">
+            <h2>Step Number <%= step.id %></h2>
+            <p><%=step.content%></p>
+        </div>
+    <% end %>
         
         <h6>Author: <%= @post.user.first_name %> <%=@post.user.last_name%></h6>
         <h6>Written On: <%=@post.created_at %></h6>
@@ -12,6 +20,6 @@
 </div>
 
 <% if @post.user_id == session["user_id"] %>
-   <a href="/posts/<%= @post.id %>/edit" class="button">Edit</a>
+   <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit</a>
 <% end %>
 
