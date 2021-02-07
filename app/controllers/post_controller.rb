@@ -1,5 +1,6 @@
 class PostController < ApplicationController
 
+    #all posts
     get '/posts' do
         redirect_if_not_logged_in
         puts current_user
@@ -7,17 +8,20 @@ class PostController < ApplicationController
             erb :"posts/index"
     end
 
+    #new post
     get '/posts/new' do
         redirect_if_not_logged_in
             erb :'posts/new'
     end
 
+    #one post
     get '/posts/:id' do
         redirect_if_not_logged_in
             @post = Post.find(params[:id])
             erb :"posts/show"
     end
 
+    #edit one post
     get '/posts/:id/edit' do
         redirect_if_not_logged_in
         # redirect_error_if_not_authorized
@@ -25,9 +29,9 @@ class PostController < ApplicationController
             erb :"posts/edit"
     end
 
+    #create post
     post '/posts' do
         redirect_if_not_logged_in
-        binding.pry
             post = Post.create(
                 
                 title: params[:post][:title], 
@@ -41,8 +45,7 @@ class PostController < ApplicationController
                 )
             end
             
-            binding.pry
-            redirect "/posts/#{post.id}"
+        redirect "/posts/#{post.id}"
     end
 
     patch '/posts/:id' do

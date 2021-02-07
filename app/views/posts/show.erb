@@ -4,6 +4,7 @@
     <div class="wrapper">
         <h3><%= @post.title %></h3>
         <p><%= @post.content %></p>
+        
         <h6>Author: <%= @post.user.first_name %> <%=@post.user.last_name%></h6>
         <h6>Written On: <%=@post.created_at %></h6>
         <hr>

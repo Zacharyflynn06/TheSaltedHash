@@ -3,7 +3,7 @@ class CreateSteps < ActiveRecord::Migration[5.2]
     create_table :steps do |t|
       t.text :content
       t.string :avatar
-      t.integer :post_id
+      t.belongs_to :post
 
       t.timestamps null: false
     end
