@@ -2,14 +2,30 @@
 
 <div >
     <form action="/posts/<%= @post.id %>" method="POST">
-        
+
+    <div class="wrapper">   
         <input class="form" type="hidden" value="PATCH" name="_method">
-            <h4><label for="title">Title:</label><br>
-                <input class="custom-form" type="text" name="post[title]" value=<%= @post.title %>></h4><br>
-            <h4><label for="content">Content:</label> <br>
-                <textarea  class="custom-form" name="post[content]"><%= @post.content %></textarea></h4><br>
+        <h4><label for="title">Title:</label><br>
+            <input class="custom-form" type="text" name="post[title]" value="<%= @post.title %>"></h4><br>
+        <h4><label for="content">Content:</label> <br>
+            <input  class="custom-form" name="post[content]" value="<%= @post.content %>"></h4><br>
+    
+        <h4><label for="step[one]">Step 1</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]" value="<%= @post.steps[0].content %>"><br><br>
+        <label for="step[two]">Step 2</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]" value="<%= @post.steps[1].content %>"><br><br>
+        <label for="step[three]">Step 3</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]" value="<%= @post.steps[2].content %>"><br><br>
+        <label for="step[four]">Step 4</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]" value="<%= @post.steps[3].content %>"><br><br>
+        <label for="step[five]">Step 5</label><br>
+            <input class="custom-form"  type="text" name="post[step][][content]" value="<%= @post.steps[4].content %>"><br><br>
+        <label for="step[six]">Step 6</label><br>
+            <input class="custom-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].content%>"><br><br></h4>
+    </div>
         <button type="submit" class="custom-button">Save</button>
     </form>
+
     <% if @post.user_id == session["user_id"] %>
 
         <form method="POST" action="/posts/<%= @post.id %>">
