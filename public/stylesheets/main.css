@@ -15,7 +15,7 @@
   body {
     background-color:#00adb5;
     color: Black;
-    font-family: Sans-Serif;
+    font-family: Georgia, serif
     line-height: 18px;
     text-align: center;
   }
@@ -27,8 +27,8 @@
 
   .wrapper {
     background: #eeeeee;
-    box-shadow: 0 0 50px #23689b;
-    margin: 20px auto;
+    box-shadow: 0 0 50px #303841;
+    margin: 40px auto;
     max-width: 960px;
     padding: 5%; /* 18px / 800px */
     width: 60%;
@@ -59,7 +59,16 @@
 
   }
 
-  .custom-form {
+  .small-form {
+    width: 40%;
+    padding: 10px;
+    color: black;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid #ff5722;
+  }
+
+  .large-form {
     width: 60%;
     padding: 10%;
     color: black;
@@ -68,11 +77,13 @@
     border: 2px solid #ff5722;
   }
 
-  textarea {
-    resize: none;
-    height: 100px
+  .signup-form {
+    width: 80%;
+    margin: 5%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #ff5722;
   }
-
 
   ::-webkit-input-placeholder {
     text-align: center;
@@ -143,7 +154,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #303841;
   }
   
   li.nav {
@@ -152,14 +163,14 @@
   
   li.nav a {
     display: block;
-    color: white;
+    color: #eeeeee;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
   
   li.nav a:hover {
-    background-color: #111;
+    background-color: #ff5722;
   }
 }
 

@@ -14,7 +14,6 @@ class PostController < ApplicationController
 
     #one post
     get '/posts/:id' do
-        redirect_if_not_logged_in
             @post = Post.find(params[:id])
             erb :"posts/show"
     end
