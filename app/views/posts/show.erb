@@ -1,11 +1,14 @@
 
     <div class="wrapper">
         <h2><%= @post.title %></h2>
-        <p><%= @post.content %></p>
-        <% binding.pry %>
-        <p><%= @post.ingredients %></p>
-        
+        <p><%= @post.content %></p>     
     </div>
+    <%binding.pry%>
+    <div>
+        <h2><%= @post.ingredients.content %></h2>
+    
+    </div>
+
     <% counter = 1%>
     <% @post.steps.each do |step| %>
         <div class="wrapper">

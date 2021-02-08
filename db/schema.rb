@@ -13,7 +13,9 @@
 ActiveRecord::Schema.define(version: 2021_02_08_044757) do
 
   create_table "ingredients", force: :cascade do |t|
-    t.text "content"
+    t.string "name"
+    t.string "measurement_type"
+    t.integer "amount"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
