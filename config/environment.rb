@@ -13,12 +13,9 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-# CarrierWave.configure do |config|
-#   config.root = File.dirname(__FILE__) + "/public/images"
-# end
-
-# Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
-# Dir[File.join(File.dirname(__FILE__), "../app/controllers", "*.rb")].each {|f| require f}
+CarrierWave.configure do |config|
+  config.root = File.dirname(__FILE__) + "/public"
+end
 
 require './app/controllers/application_controller'
 require_all 'app'

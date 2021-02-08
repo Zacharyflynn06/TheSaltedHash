@@ -10,7 +10,8 @@ gem 'shotgun'
 gem 'bcrypt'
 gem "dotenv"
 gem 'sinatra-flash'
-gem 'carrierwave'
+gem 'carrierwave', '~> 2.0'
+gem 'carrierwave-sequel'
 
 group :development do
 

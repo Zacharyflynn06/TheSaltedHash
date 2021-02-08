@@ -1,7 +1,7 @@
 <h1>Edit: <%= @post.title %></h1>
 
 <div >
-    <form action="/posts/<%= @post.id %>" method="POST">
+    <form action="/posts/<%= @post.id %>" method="POST" enctype="multipart/form-data">
 
     <div class="wrapper">   
         <input class="form" type="hidden" value="PATCH" name="_method">
@@ -26,10 +26,8 @@
         <button type="submit" class="custom-button">Save</button>
     </form>
 
-    <form method='POST' action='/' enctype="multipart/form-data">
-        <input type='file' name='file' class='form-control'>
-        <button type='submit'> Add</button>
-    </form>
+
+   
 
     <% if @post.user_id == session["user_id"] %>
 

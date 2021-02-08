@@ -25,41 +25,38 @@ class PostController < ApplicationController
             @post = Post.find(params[:id])
   
             erb :"posts/edit"
-
-
     end
 
     #create post
     post '/posts' do
         redirect_if_not_logged_in
-            post = Post.create(
+
+        photo = PhotoUploader.create
+        photo.file = params[:post][:photo]
+            # post = Post.create(
                 
-                title: params[:post][:title], 
-                content: params[:post][:content],
-                user_id: session[:user_id]
-            )
-            params[:post][:step].each do |step|
-                Step.create(
-                    content: step[:content],
-                    post_id: post.id
-                )
-            end
-            
+            #     title: params[:post][:title], 
+            #     content: params[:post][:content],
+            #     user_id: session[:user_id],
+            #     avatar: params[:post][:photo]
+            # )
+            # post.save
+            # params[:post][:step].each do |step|
+            #     Step.create(
+            #         content: step[:content],
+            #         post_id: post.id
+            #     )
+            # end
+        binding.pry
         redirect "/posts/#{post.id}"
     end
 
     patch '/posts/:id' do
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
+
         post = Post.find(params[:id])
         post.update(params["post"])
-        
-        img = Image.new
-        img.file = params[:file]
-        img.caption = "This is the caption"
-        img.save
-
-
         redirect "/posts/#{post.id}"
     end
 
