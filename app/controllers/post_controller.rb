@@ -23,7 +23,10 @@ class PostController < ApplicationController
         redirect_if_not_logged_in
         # redirect_error_if_not_authorized
             @post = Post.find(params[:id])
+  
             erb :"posts/edit"
+
+
     end
 
     #create post
@@ -48,9 +51,16 @@ class PostController < ApplicationController
     patch '/posts/:id' do
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
-            post = Post.find(params[:id])
-            post.update(params["post"])
-            redirect "/posts/#{post.id}"
+        post = Post.find(params[:id])
+        post.update(params["post"])
+        
+        img = Image.new
+        img.file = params[:file]
+        img.caption = "This is the caption"
+        img.save
+
+
+        redirect "/posts/#{post.id}"
     end
 
     delete '/posts/:id' do

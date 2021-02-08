@@ -26,6 +26,11 @@
         <button type="submit" class="custom-button">Save</button>
     </form>
 
+    <form method='POST' action='/' enctype="multipart/form-data">
+        <input type='file' name='file' class='form-control'>
+        <button type='submit'> Add</button>
+    </form>
+
     <% if @post.user_id == session["user_id"] %>
 
         <form method="POST" action="/posts/<%= @post.id %>">
