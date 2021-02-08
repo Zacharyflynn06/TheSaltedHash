@@ -2,7 +2,9 @@
     <div class="wrapper">
         <h2><%= @post.title %></h2>
         <p><%= @post.content %></p>
+        <% binding.pry %>
         <p><%= @post.ingredients %></p>
+        
     </div>
     <% counter = 1%>
     <% @post.steps.each do |step| %>

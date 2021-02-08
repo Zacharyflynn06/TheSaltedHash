@@ -47,7 +47,7 @@ class PostController < ApplicationController
                     post_id: post.id
                 )
             end
-            ingredients = Ingredients.create(
+            ingredients = Ingredient.create(
                 content: params[:post][:ingredients],
                 post_id: post.id
             )
