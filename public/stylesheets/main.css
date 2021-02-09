@@ -15,7 +15,7 @@
   body {
     background-color:#00adb5;
     color: Black;
-    font-family: Georgia, serif
+    font-family: Georgia, serif;
     line-height: 18px;
     text-align: center;
   }
@@ -96,6 +96,7 @@
   }
 
   h1 {
+    padding: 20px;
     font-size: 36px;
     line-height: 54px;
   
