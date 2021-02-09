@@ -16,3 +16,7 @@
     </div>
     <% end %>
 </div>
+
+<% if @user.id == session["user_id"] %>
+   <a href="/users/<%= @user.id %>/edit" class="custom-button">Edit Profile</a>
+<% end %>
