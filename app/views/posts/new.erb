@@ -9,20 +9,23 @@
 
         <label for="description">Description</label> <br>
             <input class="large-form" name="post[content]" type="text"><br>
-             
-        
-        <label for="ingredients">Ingredient</label><br>
-            <input class="small-form" type="text" name="post[ingredient][][name]"><br>
+    </div>
 
-        <label for="ingredient-amount">Ingredient Amount</label><br>
-            <input class="small-form" type="text" name="post[ingredient][][amount]" size="5"><br>
-        
-        <label for="ingredient-measurement">Ingredient Measurement</label><br>
-            <input class="small-form" type="text" name="post[ingredient][][measurement_type]" size="33" placeholder="e.g. cup, teaspoon, tablespoon, etc." id="ingredient_measurement_1"><br>
-
-        <input type="button" value="Add Another Ingredient" class="custom-button" />
-        <input type="button" value="Remove Ingredient" class="custom-button" />
-      </div>
+    <div class="wrapper">        
+        <table class="center">
+            <tr>
+                <th></th>
+                <th>Ingredient</th>
+                <th>Amount</th>
+                <th>Measurement</th>
+            </tr>
+            <tr>
+                <td><label for="first-ingredient">First Ingredient</label></td>
+                <td><input class="small-form" type="text" name="post[ingredient][][name]"></td>
+                <td><input class="small-form" type="text" name="post[ingredient][][amount]"></td>
+                <td><input class="small-form" type="text" name="post[ingredient][][measurement]"></td>
+            </tr>
+        </table>
     </div>
 
     <div class="wrapper">

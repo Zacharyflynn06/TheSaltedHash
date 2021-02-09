@@ -33,13 +33,13 @@ class PostController < ApplicationController
 
         # photo = PhotoUploader.create
         # photo.file = params[:post][:photo]
-            post = Post.create(
+            post = Post.new(
                 
                 title: params[:post][:title], 
                 content: params[:post][:content],
                 user_id: session[:user_id],
                 
-                # avatar: params[:post][:photo]
+                avatar: params[:post][:photo]
             )
             steps = params[:post][:step].each do |step|
                 Step.create(
@@ -47,6 +47,8 @@ class PostController < ApplicationController
                     post_id: post.id
                 )
             end
+
+            post.save
             # ingredients = Ingredient.create(
             #     content: params[:post][:ingredients],
             #     post_id: post.id
