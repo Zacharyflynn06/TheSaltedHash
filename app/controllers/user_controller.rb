@@ -11,10 +11,17 @@ class UserController < ApplicationController
     end
 
     get '/users/:id' do
-        redirect_if_not_logged_in
+        # redirect_if_not_logged_in
         
             @user = User.find(params[:id])
             erb :"users/show"
+    end
+
+    get '/users/:id/edit' do
+        redirect_if_not_logged_in
+            @user = User.find(params[:id])
+  
+            erb :"users/edit"
     end
     
 
@@ -33,6 +40,16 @@ class UserController < ApplicationController
             #flash[:error] = "Something went wrong"
             redirect '/signup'
         end
+    end
+
+    patch '/users/:id' do
+        # redirect_if_not_logged_in
+        #redirect_error_if_not_authorized
+        binding.pry
+        user = User.find(params[:id])
+        user.avatar = params[:photo]
+        user.update(params["user"])
+        redirect "/users/#{user.id}"
     end
 
     
