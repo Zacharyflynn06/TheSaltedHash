@@ -1,5 +1,7 @@
+<h1>Here are all the Users</h1>
+
+
 <% @users.each do |user|%>
-<%binding.pry%>
 <div class="wrapper">
     <h2><%= user.first_name %> <%= user.last_name %></h2>
     <a href="/users/<% user.id %>"><%= user.username %></a></h3>
