@@ -30,12 +30,6 @@ class PostController < ApplicationController
     #create post
     post '/posts' do
         redirect_if_not_logged_in
-
-        # photo = PhotoUploader.new
-        # if photo.save
-    
-        # end
-        # photo.avatar = params[:post][:photo]
             post = Post.create(
                 
                 title: params[:post][:title], 

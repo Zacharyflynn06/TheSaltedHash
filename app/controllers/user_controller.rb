@@ -27,7 +27,7 @@ class UserController < ApplicationController
 
     # create session/log a user in
     post '/signup' do
-        binding.pry
+        
         user = User.new(params[:user])
         if user.valid?
             #flash[:success] = "Success"
@@ -45,10 +45,11 @@ class UserController < ApplicationController
     patch '/users/:id' do
         # redirect_if_not_logged_in
         #redirect_error_if_not_authorized
-        binding.pry
+        
         user = User.find(params[:id])
-        user.avatar = params[:photo]
+        user.avatar = params[:user][:photo]
         user.update(params["user"])
+        binding.pry
         redirect "/users/#{user.id}"
     end
 
