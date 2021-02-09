@@ -4,17 +4,26 @@
         <p><%= @post.content %></p>     
     </div>
 
+   
+    
     <div class="wrapper">
+        <h3>Ingredients</h3>
         <% ingredient_counter = 1 %>
-        <% #binding.pry %>
+        <%binding.pry%>
         <% @post.ingredients.each do |ingredient| %>
-            
-            <h4>Ingredient<%= ingredient_counter  %></h4>
+           <table>
+            <tr>
+                <th>Ingredient</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+           
+           </table>
             <p><%=ingredient.name%> <%= ingredient.amount %> <%= ingredient.measurement_type%> </p>
             <% ingredient_counter += 1%>
-        </div>
         <% end %>
     </div>
+
 
     <% step_counter = 1%>
     <% @post.steps.each do |step| %>
