@@ -12,7 +12,7 @@ class UserController < ApplicationController
 
 
     #user home page
-    get '/users/home' do
+    get '/users/:id/home' do
         redirect_if_not_logged_in
             @user = User.find(session["user_id"])
             @user_posts = @user.posts

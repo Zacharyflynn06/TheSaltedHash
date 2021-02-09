@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td><label for="first-ingredient">First Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value= <%= @post.ingredients %>></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[0].name %>"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
