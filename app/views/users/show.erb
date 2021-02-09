@@ -2,22 +2,18 @@
 
 <h1><%= @user.username %>'s Homepage!</h1>
 
-<% binding.pry %>
-
-<% #click here to upload a profile picture! %>
-
-
-<h4>Here is <% @user.username %>'s posts'</h4>
-
+<h4>Here is <%= @user.username %>'s posts'</h4><br><br>
 
 <div class="post">
+<% @user.posts.each do |post| %>
     <div class="wrapper">
-        <h3><a href="/posts/<%= post.id %>"> <%= post.title %></a></h3>
-        <p><%= post.content %></p>
-        <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
+        <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+        <p><%= user.post.content %></p>
         <h6>Written On: <%=post.created_at %></h6>
     </div>
+<%end%>
 
-<% if @user.user_id == session["user_id"] %>
+<% #click here to upload a profile picture! %>
+<% if @user.id == session["user_id"] %>
    <a href="/users/<%= @user.id %>/edit" class="custom-button">Edit</a>
 <% end %>
