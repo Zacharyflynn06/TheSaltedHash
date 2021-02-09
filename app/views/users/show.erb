@@ -1,13 +1,15 @@
-<h1><%= @user.username %>'s Homepage!</h1>
-
-<h4>Here are<%= @user.username %>'s posts'</h4><br><br>
+<div class="wrapper">
+    <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
+</div>
 
 <div class="post">
+
 <% @user.posts.each do |post| %>
     <div class="wrapper">
         <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
-        <p><%= user.post.content %></p>
-        <h6>Written On: <%=post.created_at %></h6>
+        <p><%= post.content %></p>
+        <img src="<%= post.avatar %>" alt="post-photo">
+        <h6>Written On: <%= post.created_at %></h6>
     </div>
 <%end%>
 
