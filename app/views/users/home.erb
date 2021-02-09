@@ -1,9 +1,8 @@
 <br><br>
 
+<% if @user.id == session["user_id"] %>
 <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
-
-<% #click here to upload a profile picture! %>
-
+<% end %>
 
 <h4>Here are your posts</h4><br>
 <div class="post">

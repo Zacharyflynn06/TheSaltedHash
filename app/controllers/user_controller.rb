@@ -10,15 +10,6 @@ class UserController < ApplicationController
         erb :'users/index'
     end
 
-
-    #user home page
-    get '/users/:id/home' do
-        redirect_if_not_logged_in
-            @user = User.find(session["user_id"])
-            @user_posts = @user.posts
-            erb :"users/home"  
-    end
-
     get '/users/:id' do
         redirect_if_not_logged_in
         
@@ -29,11 +20,15 @@ class UserController < ApplicationController
 
     # create session/log a user in
     post '/signup' do
-        user = User.create(params[:user])
+        binding.pry
+        user = User.new(params[:user])
         if user.valid?
             #flash[:success] = "Success"
+            user.save
             session["user_id"] = user.id
-            redirect '/users/home'
+            binding.pry
+            
+            redirect "/users/#{user.id}"
         else
             #flash[:error] = "Something went wrong"
             redirect '/signup'
