@@ -1,6 +1,11 @@
-<h1>Edit: <%= @post.title %></h1>
+<br>
+<div class="wrapper">
+    <h1>Edit:</h1>
 
+    <h2><%= @post.title %></h2>
+</div>
 <div >
+
     <form action="/posts/<%= @post.id %>" method="POST" enctype="multipart/form-data">
 
     <div class="wrapper">   
@@ -11,9 +16,37 @@
 
     <div class="wrapper">   
         <h4><label for="content">Description</label> <br>
-            <input  class="large-form" name="post[content]" value="<%= @post.content %>"></h4><br>
-        <label for="ingredients">Ingredients</label>
-            <input class="large-form" type="text" name="post[ingredients]" value="<%= @post.ingredients %>"><br><br></h4>
+            <input  class="large-form" name="post[content]" value="<%= @post.content %>"><br>
+    </div>
+
+    <div class="wrapper">
+        <table class="center">
+            <h3>Ingredients</h3><br>
+            <tr>
+                <th></th>
+                <th>Ingredient</th>
+                <th>Amount</th>
+                <th>Measurement</th>
+            </tr>
+            <tr>
+                <td><label for="first-ingredient">First Ingredient</label></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][name]" value= <%= @post.ingredients %>></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
+            </tr>
+            <tr>
+                <td><label for="second-ingredient">Second Ingredient</label></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
+            </tr>
+            <tr>
+                <td><label for="third-ingredient">Third Ingredient</label></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
+                <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
+            </tr>
+        </table>
     </div>
 
     <% if @post.steps %>
@@ -34,7 +67,7 @@
                 <input class="large-form"  type="text" name="post[step][][content]" value="<%= @post.steps[4].content %>"><br><br>
 
             <label for="step[six]">Step 6</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].content%>"><br><br></p>
+                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].content%>"><br><br></p></h4>
 
         </div>
     <% end %>

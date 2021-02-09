@@ -1,7 +1,7 @@
 @media screen {
   /* --- Reset Styles --- */
   * {
-    list-style-type; disc;
+    list-style-type; square;
     margin: 0;
     padding: 0;
   }
@@ -69,12 +69,16 @@
   }
 
   .large-form {
+    height: 200px;
     width: 60%;
-    padding: 10%;
+    height: 20%;
+    padding: 5%;
     color: black;
     position: relative;
     border-radius: 10px;
     border: 2px solid #ff5722;
+    
+    
   }
 
   .signup-form {
@@ -172,6 +176,17 @@
   
   li.nav a:hover {
     background-color: #ff5722;
+  }
+
+
+  .ingredients {
+    text-align: left;
+  }
+
+  input {
+    text-align: start;
+    text-shadow: #00adb5;
+    
   }
 }
 

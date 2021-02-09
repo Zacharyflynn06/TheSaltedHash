@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    redirect '/login'
+    redirect '/posts'
   end
 
   helpers do
