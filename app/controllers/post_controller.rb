@@ -31,14 +31,16 @@ class PostController < ApplicationController
     post '/posts' do
         redirect_if_not_logged_in
 
-        # photo = PhotoUploader.create
-        # photo.file = params[:post][:photo]
-            post = Post.new(
+        # photo = PhotoUploader.new
+        # if photo.save
+    
+        # end
+        # photo.avatar = params[:post][:photo]
+            post = Post.create(
                 
                 title: params[:post][:title], 
                 content: params[:post][:content],
                 user_id: session[:user_id],
-                
                 avatar: params[:post][:photo]
             )
             steps = params[:post][:step].each do |step|
@@ -47,8 +49,6 @@ class PostController < ApplicationController
                     post_id: post.id
                 )
             end
-
-            post.save
             # ingredients = Ingredient.create(
             #     content: params[:post][:ingredients],
             #     post_id: post.id

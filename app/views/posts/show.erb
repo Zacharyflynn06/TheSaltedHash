@@ -3,16 +3,23 @@
         <h2><%= @post.title %></h2>
         <p><%= @post.content %></p>     
     </div>
-    <div>
-    
+
+    <div class="wrapper">
+        <%ingredient_counter = 1%>
+        <% @post.ingredients.each do |ingredient| %>
+            <h4>Ingredient<%= counter  %></h4>
+            <p><%=ingredient.name%> <%= ingredient.amount %> <%= ingredient.measurement_type%> </p>
+            <% ingredient_counter += 1%>
+        </div>
+        <% end %>
     </div>
 
-    <% counter = 1%>
+    <% step_counter = 1%>
     <% @post.steps.each do |step| %>
         <div class="wrapper">
-            <h4>Step <%= counter  %></h4>
+            <h4>Step <%= step_counter  %></h4>
             <p><%=step.content%></p>
-            <% counter += 1%>
+            <% step_counter += 1%>
         </div>
         <% end %>
 
