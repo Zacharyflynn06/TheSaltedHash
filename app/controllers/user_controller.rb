@@ -25,6 +25,7 @@ class UserController < ApplicationController
             @user = User.find(params[:id])
             erb :"users/show"
     end
+    
 
     # create session/log a user in
     post '/signup' do
