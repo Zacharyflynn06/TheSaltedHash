@@ -22,11 +22,10 @@ class UserController < ApplicationController
     # create session/log a user in
     post '/signup' do
         user = User.create(params[:user])
-        puts params
         if user.valid?
             #flash[:success] = "Success"
             session["user_id"] = user.id
-            redirect '/posts'
+            redirect '/users/home'
         else
             #flash[:error] = "Something went wrong"
             redirect '/signup'
