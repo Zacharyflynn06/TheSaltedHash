@@ -5,6 +5,10 @@
     margin: 0;
     padding: 0;
   }
+  img {
+    max-width:100%;
+    height:auto;
+  }
 
   html, body {
     height: 100%;
@@ -96,7 +100,6 @@
  }
   div.post{
     text-align: center;
-    padding: 50px;
   }
 
   h1 {

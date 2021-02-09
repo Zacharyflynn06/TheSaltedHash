@@ -1,16 +1,21 @@
 <br>
-<h1>Click on the post title to see the full recipe!</h1>
+<div class="wrapper">
+    <h1>News Feed</h1>
+</div>
 
 <% # how do i make this a news feed? %>
 
-<div class="post">
+<div class="center">
     <% @posts.each do |post|%>
         <div class="wrapper">
             <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
             <p><%= post.content %></p>
+            <img src="<%= post.avatar %>" alt="post-photo" class="post">
+
             <h6>Author: <%= post.user.first_name %> <%=post.user.last_name%></h6>
-            <h6>Created on: <%=post.created_at %></h6>
+            <h6>Created on: <%=post.created_at %></h6> 
         </div>
+
     <% end %>
     
 
