@@ -11,4 +11,6 @@
     </div>
 <%end%>
 
-<% #click here to upload a profile picture! %>
+<% if @user.id == session["user_id"] %>
+    <button class="custom-button"><a href="/users/edit"></a>Edit Your Profile!</button>
+<% end %>
