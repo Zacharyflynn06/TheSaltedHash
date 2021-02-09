@@ -49,10 +49,15 @@ class PostController < ApplicationController
                     post_id: post.id
                 )
             end
-            # ingredients = Ingredient.create(
-            #     content: params[:post][:ingredients],
-            #     post_id: post.id
-            # )
+            binding.pry
+            ingredients = params[:post][:ingredients].each do |ingredient|
+                Ingredient.create(
+                    name: ingredient[:name]
+                    
+                )
+            end
+
+            
             
         binding.pry
         redirect "/posts/#{post.id}"

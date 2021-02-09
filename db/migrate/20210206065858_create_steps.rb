@@ -4,6 +4,7 @@ class CreateSteps < ActiveRecord::Migration[5.2]
       t.text :content
       t.string :avatar
       t.belongs_to :post
+      t.string :avatar
 
       t.timestamps null: false
     end

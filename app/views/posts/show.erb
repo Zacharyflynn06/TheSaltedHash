@@ -5,9 +5,11 @@
     </div>
 
     <div class="wrapper">
-        <%ingredient_counter = 1%>
+        <% ingredient_counter = 1 %>
+        <% #binding.pry %>
         <% @post.ingredients.each do |ingredient| %>
-            <h4>Ingredient<%= counter  %></h4>
+            
+            <h4>Ingredient<%= ingredient_counter  %></h4>
             <p><%=ingredient.name%> <%= ingredient.amount %> <%= ingredient.measurement_type%> </p>
             <% ingredient_counter += 1%>
         </div>
