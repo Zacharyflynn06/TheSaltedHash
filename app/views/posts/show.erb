@@ -7,21 +7,12 @@
    
     
     <div class="wrapper">
-        <h3>Ingredients</h3>
-        <% ingredient_counter = 1 %>
-        <%binding.pry%>
-        <% @post.ingredients.each do |ingredient| %>
-           <table>
-            <tr>
-                <th>Ingredient</th>
-                <th>Amount</th>
-                <th>Type</th>
-            </tr>
-           
-           </table>
-            <p><%=ingredient.name%> <%= ingredient.amount %> <%= ingredient.measurement_type%> </p>
-            <% ingredient_counter += 1%>
+        <h3>Ingredients</h3><br>
+        <ul class="ingredients">
+            <% @post.ingredients.each do |ingredient| %>
+                <li> <%= ingredient.amount %> <%= ingredient.measurement_type%> <%=ingredient.name%> </li><br>
         <% end %>
+        </ul>
     </div>
 
 
