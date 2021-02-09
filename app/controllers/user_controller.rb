@@ -12,11 +12,18 @@ class UserController < ApplicationController
 
 
     #user home page
-    get '/users/:id' do
+    get '/users/home' do
         redirect_if_not_logged_in
             @user = User.find(session["user_id"])
             @user_posts = @user.posts
             erb :"users/home"  
+    end
+
+    get '/users/:id' do
+        redirect_if_not_logged_in
+        
+            @user = User.find(params[:id])
+            erb :"users/show"
     end
 
     # create session/log a user in
