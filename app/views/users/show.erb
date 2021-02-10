@@ -1,6 +1,13 @@
-<div class="wrapper">
-    <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
-</div>
+<%if @user.id == session["user_id"]%>
+    <div class="wrapper">
+        <h1>Welcome Home, <%= @user.first_name %> <%= @user.last_name %></h1>
+    </div>
+<% else %>
+    <div class="wrapper">
+        <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
+    </div>
+
+<%end%>
 
 <div class="post">
 
