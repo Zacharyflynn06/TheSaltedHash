@@ -1,11 +1,14 @@
-<h1>Here are all the Users</h1>
+<div class="wrapper">
+
+    <h1>Here are all the Users</h1>
+
+</div>
 
 
 <% @users.each do |user|%>
-<div class="wrapper">
-    <h2><%= user.first_name %> <%= user.last_name %></h2>
-    <a href="/users/<%= user.id %>"><%= user.username %></a></h3>
-    <h3>
-</div>
+    <div class="wrapper">
+        <h2><a href="/users/<%= user.id %>"><%= user.username %></a></h2>
+        <h3><%= user.first_name %> <%= user.last_name %></h3>
+    </div>
 
 <% end %>

@@ -8,9 +8,7 @@
     <form action="/users/<%= @user.id %>" method="POST" enctype="multipart/form-data" >
     <input type="hidden" value="PATCH" name="_method">
         <table class="center">
-            <input class="custom-button" type="file" name="user[photo]" value="Upload a Profile Picture!">
-
-                
+            <input class="custom-button" type="file" name="user[avatar]" value="<%= @user.avatar %>">
 
             <tr>
                 <td>
