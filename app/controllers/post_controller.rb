@@ -2,7 +2,7 @@ class PostController < ApplicationController
 
     #all posts
     get '/posts' do
-        @posts = Post.all 
+        @posts = Post.all.order("created_at DESC") 
         erb :"posts/index"
     end
 

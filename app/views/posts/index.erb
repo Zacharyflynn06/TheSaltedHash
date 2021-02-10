@@ -6,9 +6,10 @@
 <% # how do i make this a news feed? %>
 
 <div class="center">
+    
     <% @posts.each do |post|%>
         <div class="wrapper">
-            <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+            <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
             <p><%= post.content %></p>
             <img src="<%= post.avatar %>" alt="post-photo" class="post">
 
