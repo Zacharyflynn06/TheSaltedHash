@@ -67,28 +67,25 @@
         </table>
     </div>
 
-    <% if @post.steps %>
-        <div class="wrapper">   
-            <p><label for="step[one]">Step 1</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[0].content %>"><br><br>
+    <div class="wrapper">   
+        <p><label for="step[one]">Step 1</label><br>
+            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[0].try(:content) %>"><br><br>
+        <label for="step[two]">Step 2</label><br>
+            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[1].try(:content) %>"><br><br>
+        <label for="step[three]">Step 3</label><br>
+            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[2].try(:content) %>"><br><br>
+        <label for="step[four]">Step 4</label><br>
+            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[3].try(:content) %>"><br><br>
+        <label for="step[five]">Step 5</label><br>
+            <input class="large-form"  type="text" name="post[step][][content]" value="<%= @post.steps[4].try(:content) %>"><br><br>
+        <label for="step[six]">Step 6</label><br>
+            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].try(:content)%>"><br><br></p></h4>
+    </div>
 
-            <label for="step[two]">Step 2</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[1].content %>"><br><br>
-
-            <label for="step[three]">Step 3</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[2].content %>"><br><br>
-
-            <label for="step[four]">Step 4</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[3].content %>"><br><br>
-
-            <label for="step[five]">Step 5</label><br>
-                <input class="large-form"  type="text" name="post[step][][content]" value="<%= @post.steps[4].content %>"><br><br>
-
-            <label for="step[six]">Step 6</label><br>
-                <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].content%>"><br><br></p></h4>
-
-        </div>
-    <% end %>
+    <div>
+        <input class="custom-button" type="file" name="post[avatar]" value="<%= @post.avatar %>"><br>
+    
+    </div>
         <button type="submit" class="custom-button">Save</button>
     </form>
 

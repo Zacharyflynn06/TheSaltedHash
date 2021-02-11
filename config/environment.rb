@@ -14,7 +14,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 CarrierWave.configure do |config|
-  config.root = "./public"
+  config.root = "."
 end
 
 require './app/controllers/application_controller'

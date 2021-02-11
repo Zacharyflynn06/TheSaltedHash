@@ -4,7 +4,7 @@ class CreateIngredients < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :measurement_type
       t.integer :amount
-      t.belongs_to :post, foreign_key: {on_delete: :cascade}
+      t.belongs_to :post
 
       t.timestamps null: false
     end

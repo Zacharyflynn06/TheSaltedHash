@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_032540) do
+ActiveRecord::Schema.define(version: 2021_02_11_192019) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2021_02_09_032540) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_ingredients_on_post_id"
+  end
+
+  create_table "post_ingredients", force: :cascade do |t|
+    t.integer "amount"
+    t.string "measurement_type"
+    t.integer "post_id"
+    t.integer "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,9 +56,9 @@ ActiveRecord::Schema.define(version: 2021_02_09_032540) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
   end
 
 end

@@ -61,7 +61,15 @@ class PostController < ApplicationController
         #redirect_error_if_not_authorized
 
         post = Post.find(params[:id])
-        post.update(params["post"])
+
+        ingredients = params[:post][:ingredients].each do |ingredient|
+            Ingredient.find_by(id: post.id)
+        end
+
+
+
+        binding.pry
+        post.update(params[:post])
         redirect "/posts/#{post.id}"
     end
 

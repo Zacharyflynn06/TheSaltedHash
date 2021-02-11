@@ -2,13 +2,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
     
     storage :file
     
-    # def store_dir
-    #   "public/images"
-    # end
+    def store_dir
+      "public/images"
+    end
   
-    # def cache_dir
-    #   "public/images"
-    # end
+    def cache_dir
+      "public/images/tmp"
+    end
   
     # def extension_whitelist
     #   %w(jpg jpeg gif png)
