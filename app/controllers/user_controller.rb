@@ -33,8 +33,6 @@ class UserController < ApplicationController
             #flash[:success] = "Success"
             user.save
             session["user_id"] = user.id
-            binding.pry
-            
             redirect "/users/#{user.id}"
         else
             #flash[:error] = "Something went wrong"
@@ -46,13 +44,12 @@ class UserController < ApplicationController
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
         
+        # binding.pry
         user = User.find(params[:id])
-        user.update(params[:user])
-
         uploader = PhotoUploader.new
-
         uploader.store!(params[:user][:avatar])
-        
+        user.update(params[:user])
+        # binding.pry
         redirect "/users/#{user.id}"
     end
 

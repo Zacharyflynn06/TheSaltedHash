@@ -10,11 +10,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
       "public/images/tmp"
     end
   
-    # def extension_whitelist
-    #   %w(jpg jpeg gif png)
-    # end
+    def extension_whitelist
+      %w(jpg jpeg gif png)
+    end
   
-    # def content_type_whitelist
-    #   /image\//
-    # end
+    def content_type_whitelist
+      /image\//
+    end
 end

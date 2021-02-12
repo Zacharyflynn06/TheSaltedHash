@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     use Rack::Session::Cookie, :key => 'rack.session',
                            :path => '/',
                            :secret => ENV['SESSION_SECRET']
-    # set :session_secret, ENV['SESSION_SECRET']
+    
     register Sinatra::Flash
   end
 
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_in
-      redirect "/notes" if logged_in?
+      redirect "/posts" if logged_in?
     end
     
   end

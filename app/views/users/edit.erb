@@ -7,9 +7,10 @@
 <div >
     <form action="/users/<%= @user.id %>" method="POST" enctype="multipart/form-data" >
     <input type="hidden" value="PATCH" name="_method">
-        <table class="center">
-            <input class="custom-button" type="file" name="user[avatar]" value="<%= @user.avatar %>">
-
+        
+            <input class="custom-button" type="file" name="user[avatar]" value="<%= @user.avatar %>"><br> <br>
+            <textarea class = "large-form" name="user[bio]" id="" cols="30" rows="10"><%= @user.bio%></textarea>
+    <table class="center">
             <tr>
                 <td>
                     <h5><label for="first_name">First Name:</label></h5>
@@ -32,18 +33,9 @@
                     <h5><label for="email">Email:</label></h5>
                     <input class="signup-form" type="email" name="user[email]" value="<%= @user.email %>">
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <h5><label for="password">Password:</label></h5>
-                    <input class="signup-form" type="password" name="user[password]" value="<%= @user.password %>">
-                </td>
-                <td>
-                    <h5><label for="password_confirmation">Confirm Password:</label></h5>
-                    <input class="signup-form" type="password" name="user[password_confirmation]">
-                </td>
-            </tr>
         </table>
+                    <h5><label for="password">Enter Password To Confirm Changes:</label></h5>
+                    <input class="small-form" type="password" name="user[password]" value="<%= @user.password %>">
         <div>
         <br>
             <button type="submit" class="custom-button">Save</button>

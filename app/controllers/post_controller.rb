@@ -65,9 +65,7 @@ class PostController < ApplicationController
         ingredients = params[:post][:ingredients].each do |ingredient|
             Ingredient.find_by(id: post.id)
         end
-
-
-
+        
         binding.pry
         post.update(params[:post])
         redirect "/posts/#{post.id}"
