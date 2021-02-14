@@ -14,8 +14,6 @@ ActiveRecord::Schema.define(version: 2021_02_11_192019) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.string "measurement_type"
-    t.integer "amount"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +27,8 @@ ActiveRecord::Schema.define(version: 2021_02_11_192019) do
     t.integer "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_post_ingredients_on_ingredient_id"
+    t.index ["post_id"], name: "index_post_ingredients_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|

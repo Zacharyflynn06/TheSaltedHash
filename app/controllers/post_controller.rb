@@ -37,17 +37,23 @@ class PostController < ApplicationController
                 user_id: session[:user_id],
                 avatar: params[:post][:photo]
             )
+
             steps = params[:post][:step].each do |step|
-                Step.create(
+               Step.create(
                     content: step[:content],
                     post_id: post.id
                 )
             end
             
-            ingredients = params[:post][:ingredients].each do |ingredient|
-                Ingredient.create(
-                    name: ingredient[:name],
-                )
+            params[:post][:ingredients].each do |ingredient|
+               new_ingredient = Ingredient.create(name: ingredient[:name], post_id: post.id)
+               PostIngredients.create(
+                    amount: ingredient[:amount], 
+                    measurement_type: ingredient[:measurement_type],
+                    post_id: post.id,
+                    ingredient_id: new_ingredient.id,
+                    )
+
             end
         redirect "/posts/#{post.id}"
     end
