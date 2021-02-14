@@ -14,7 +14,8 @@
     <div class="wrapper">
         <h2>Ingredients</h2><br>
         <ul class="ingredients">
-            <% @post.ingredients.each do |ingredient| %>
+        <%binding.pry%>
+            <% @post.ingredient.each do |ingredient| %>
                 <li> <%= ingredient.amount %> <%= ingredient.measurement_type%> <%=ingredient.name%> </li><br>
         <% end %>
         </ul>

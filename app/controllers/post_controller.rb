@@ -47,10 +47,6 @@ class PostController < ApplicationController
             ingredients = params[:post][:ingredients].each do |ingredient|
                 Ingredient.create(
                     name: ingredient[:name],
-                    amount: ingredient[:amount],
-                    measurement_type: ingredient[:measurement],
-                    post_id: post.id
-    
                 )
             end
         redirect "/posts/#{post.id}"
