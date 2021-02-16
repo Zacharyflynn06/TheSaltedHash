@@ -13,13 +13,14 @@
 <%end%>
 
 <% #THIS IS WHAT I CANT GET WORKING %>
-<%binding.pry%>
 
 <% if @user.avatar %>
     <div class= "wrapper">
-        <img src="<%= @user.avatar %>" alt="Not Working">
+<%binding.pry%>
+        
+        <img src='<%= @user.avatar.url %>'>
     </div>
-<% end %>%
+<% end %>
 <div class="post">
 
 <% @user.posts.each do |post| %>

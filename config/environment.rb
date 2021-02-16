@@ -1,8 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
+
 
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
@@ -13,8 +12,11 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+
 CarrierWave.configure do |config|
-  config.root = "."
+  config.root = "./public"
 end
 
 require './app/controllers/application_controller'
