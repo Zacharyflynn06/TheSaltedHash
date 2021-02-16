@@ -46,7 +46,8 @@ class PostController < ApplicationController
             end
             
             params[:post][:ingredients].each do |ingredient|
-               new_ingredient = Ingredient.create(name: ingredient[:name], post_id: post.id)
+               post.ingredients << Ingredient.create(name: ingredient[:name])
+
                PostIngredients.create(
                     amount: ingredient[:amount], 
                     measurement_type: ingredient[:measurement_type],
@@ -75,7 +76,6 @@ class PostController < ApplicationController
 
     delete '/posts/:id' do
         redirect_if_not_logged_in
-        # redirect_error_if_not_authorized
         post = Post.find(params[:id])
         post.delete
         redirect "/posts"
