@@ -12,23 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2021_02_11_192019) do
 
+  create_table "ingredient_posts", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "ingredient_id"
+    t.integer "amount"
+    t.string "measurement_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_ingredient_posts_on_ingredient_id"
+    t.index ["post_id"], name: "index_ingredient_posts_on_post_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_ingredients_on_post_id"
-  end
-
-  create_table "ingredients_posts", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "ingredient_id", null: false
-    t.integer "amount"
-    t.string "measurement_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_ingredients_posts_on_post_id"
-    t.index [nil], name: "index_ingredients_posts_on_category_id"
   end
 
   create_table "posts", force: :cascade do |t|

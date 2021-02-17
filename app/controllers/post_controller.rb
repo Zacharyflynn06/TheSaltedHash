@@ -49,11 +49,12 @@ class PostController < ApplicationController
             end
             
             params[:post][:ingredients].each do |ingredient|
+                binding.pry
               new_ingredient = Ingredient.create(
                   name: ingredient[:name],
                   post_id: post.id)
-                    # binding.pry
-                PostIngredient.create(
+                    binding.pry
+                IngredientPost.create(
                    amount: ingredient[:amount], 
                    measurement_type: ingredient[:measurement_type],
                    post_id: post.id,
