@@ -20,15 +20,15 @@ ActiveRecord::Schema.define(version: 2021_02_11_192019) do
     t.index ["post_id"], name: "index_ingredients_on_post_id"
   end
 
-  create_table "post_ingredients", force: :cascade do |t|
+  create_table "ingredients_posts", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "ingredient_id", null: false
     t.integer "amount"
     t.string "measurement_type"
-    t.integer "post_id"
-    t.integer "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_post_ingredients_on_ingredient_id"
-    t.index ["post_id"], name: "index_post_ingredients_on_post_id"
+    t.index ["post_id"], name: "index_ingredients_posts_on_post_id"
+    t.index [nil], name: "index_ingredients_posts_on_category_id"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -25,7 +25,8 @@ class PostController < ApplicationController
         redirect_if_not_logged_in
         # redirect_error_if_not_authorized
             @post = Post.find(params[:id])
-  
+            @post_ingredients = PostIngredients.where(post_id: @post.id)
+            binding.pry
             erb :"posts/edit"
     end
 
