@@ -12,12 +12,8 @@
     </div>
 <%end%>
 
-<% #THIS IS WHAT I CANT GET WORKING %>
-
 <% if @user.avatar %>
-    <div class= "wrapper">
-<%binding.pry%>
-        
+    <div class= "wrapper">        
         <img src='<%= @user.avatar.url %>'>
     </div>
 <% end %>
