@@ -14,7 +14,9 @@ class PostController < ApplicationController
 
     #one post
     get '/posts/:id' do
+        
             @post = Post.find(params[:id])
+            binding.pry
             erb :"posts/show"
     end
 
@@ -46,14 +48,16 @@ class PostController < ApplicationController
             end
             
             params[:post][:ingredients].each do |ingredient|
-               post.ingredients << Ingredient.create(name: ingredient[:name])
-
-               PostIngredients.create(
-                    amount: ingredient[:amount], 
-                    measurement_type: ingredient[:measurement_type],
-                    post_id: post.id,
-                    ingredient_id: new_ingredient.id,
-                    )
+              new_ingredient = Ingredient.create(
+                  name: ingredient[:name],
+                  post_id: post.id)
+                    # binding.pry
+                PostIngredient.create(
+                   amount: ingredient[:amount], 
+                   measurement_type: ingredient[:measurement_type],
+                   post_id: post.id,
+                   ingredient_id: new_ingredient.id
+                   )
 
             end
         redirect "/posts/#{post.id}"

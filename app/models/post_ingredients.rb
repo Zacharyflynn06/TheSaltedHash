@@ -1,4 +1,4 @@
-class PostIngredients < ActiveRecord::Base
+class PostIngredient < ActiveRecord::Base
 
     belongs_to :post
     belongs_to :ingredient

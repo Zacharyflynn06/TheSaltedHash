@@ -7,16 +7,16 @@
 <% else %>
     <div class="wrapper">
         <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
-        
-        
     </div>
 <%end%>
+
 
 <% if @user.avatar %>
     <div class= "wrapper">        
         <img src='<%= @user.avatar.url %>'>
     </div>
 <% end %>
+
 <div class="post">
 
 <% @user.posts.each do |post| %>
