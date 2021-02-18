@@ -1,28 +1,25 @@
 <%if @user.id == session["user_id"]%>
     <div class="wrapper">
-        <h1>Welcome Home, <%= @user.first_name %></h1><br>
-        
+        <h2>Welcome Home, <%= @user.first_name %></h2><br>
+        <img src="<%= @user.avatar.url %>" alt="no photo">
+    </div>
+    <div class="wrapper">
+        <h2>Bio</h2>
         <h4><%= @user.bio %></h4>
     </div>
 <% else %>
     <div class="wrapper">
         <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
+        
     </div>
 <%end%>
-
-
-<% if @user.avatar %>
-    <div class= "wrapper">        
-        <img src='<%= @user.avatar.url %>'>
-    </div>
-<% end %>
 
 <div class="post">
 
 <% @user.posts.each do |post| %>
     <div class="wrapper">
-        <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
-        <p><%= post.content %></p>
+        <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+        <p><%= post.description %></p>
         <img src="<%= post.avatar %>" alt="post-photo">
         <h6>Written On: <%= post.created_at %></h6>
     </div>

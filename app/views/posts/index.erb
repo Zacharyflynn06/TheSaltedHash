@@ -13,8 +13,8 @@
             <p><%= post.description %></p>
             <img src="<%= post.avatar %>" alt="post-photo" class="post">
 
-            <h6>Author: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%=post.user.last_name%></a></h6>
-            <h6>Created on: <%=post.created_at %></h6> 
+            <h5>Author: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%=post.user.last_name%></a></h5>
+            <h5>Created on: <%=post.created_at %></h5> 
         </div>
 
     <% end %>

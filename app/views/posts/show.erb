@@ -34,12 +34,12 @@
         </div>
         <% end %>
 
-    <div>
-        <h6>Author: <%= @post.user.first_name %> <%=@post.user.last_name%></h6>
-        <h6>Written On: <%=@post.created_at %></h6>
+    <div class="wrapper">
+            <h3>Author: <a href="/users/<%= @post.user.id %>"><%= @post.user.first_name %> <%= @post.user.last_name%></a></h3><br>
+            <h5>Created on: <%= @post.created_at %></h5><br>
     </div>
 
 <% if @post.user_id == session["user_id"] %>
-   <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit</a>
+   <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit Post</a>
 <% end %>
 

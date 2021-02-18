@@ -16,7 +16,7 @@
 
     <div class="wrapper">   
         <h4><label for="content">Description</label> <br>
-            <input  class="large-form" name="post[content]" value="<%= @post.content %>"><br>
+            <input  class="large-form" name="post[content]" value="<%= @post.description %>"><br>
     </div>
 
     <div class="wrapper">
@@ -28,43 +28,16 @@
                 <th>Amount</th>
                 <th>Measurement</th>
             </tr>
-            <% binding.pry %>
-            <tr>
-                <td><label for="first-ingredient">1st Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[0].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[0].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[0].measurement_type %>"></td>
-            </tr>
-            <tr>
-                <td><label for="second-ingredient">2nd Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[1].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[1].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[1].measurement_type %>"></td>
-            </tr>
-            <tr>
-                <td><label for="third-ingredient">3rd Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[2].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[2].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[2].measurement_type %>"></td>
-            </tr>
-            <tr>
-                <td><label for="third-ingredient">4th Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[3].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[3].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[3].measurement_type %>"></td>
-            </tr>
-            <tr>
-                <td><label for="third-ingredient">5th Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[4].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[4].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[4].measurement_type %>"></td>
-            </tr>
-            <tr>
-                <td><label for="third-ingredient">6th Ingredient</label></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= @post.ingredients[5].name %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= @post.ingredients[5].amount %>"></td>
-                <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= @post.ingredients[5].measurement_type %>"></td>
-            </tr>
+            <%counter = 1%>
+            <% @post.ingredients.each do |ingredient|%>
+                <tr>
+                    <td><label for="first-ingredient">Ingredient #<%=counter%></label></td>
+                    <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= ingredient.name %>"></td>
+                    <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= ingredient.ingredient_posts[0].amount %>"></td>
+                    <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= ingredient.ingredient_posts[0].measurement_type %>"></td>
+                </tr>
+                <%counter += 1%>
+            <%end%>
         </table>
     </div>
 
