@@ -15,8 +15,14 @@
     </div>
 
     <div class="wrapper">   
-        <h4><label for="content">Description</label> <br>
-            <input  class="large-form" name="post[content]" value="<%= @post.description %>"><br>
+        <h4><label for="post[content]">Description</label> <br>
+            <textarea class="large-form" name="post[content]"><%= @post.description %></textarea><br>
+    </div>
+
+    <div class = "wrapper">
+        <h4><label for="post[avatar]">Upload a new Photo</label> <br>
+        <input class="custom-button" type="file" name="post[avatar]" value="<%= @post.avatar %>"><br>
+    
     </div>
 
     <div class="wrapper">
@@ -31,7 +37,7 @@
             <%counter = 1%>
             <% @post.ingredients.each do |ingredient|%>
                 <tr>
-                    <td><label for="first-ingredient">Ingredient #<%=counter%></label></td>
+                    <td><label>Ingredient #<%=counter%></label></td>
                     <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= ingredient.name %>"></td>
                     <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= ingredient.ingredient_posts[0].amount %>"></td>
                     <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= ingredient.ingredient_posts[0].measurement_type %>"></td>
@@ -41,25 +47,16 @@
         </table>
     </div>
 
-    <div class="wrapper">   
-        <p><label for="step[one]">Step 1</label><br>
-            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[0].try(:content) %>"><br><br>
-        <label for="step[two]">Step 2</label><br>
-            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[1].try(:content) %>"><br><br>
-        <label for="step[three]">Step 3</label><br>
-            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[2].try(:content) %>"><br><br>
-        <label for="step[four]">Step 4</label><br>
-            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[3].try(:content) %>"><br><br>
-        <label for="step[five]">Step 5</label><br>
-            <input class="large-form"  type="text" name="post[step][][content]" value="<%= @post.steps[4].try(:content) %>"><br><br>
-        <label for="step[six]">Step 6</label><br>
-            <input class="large-form" type="text" name="post[step][][content]" value="<%= @post.steps[5].try(:content)%>"><br><br></p></h4>
+    <div class="wrapper">
+        <% ingredient_counter = 1%>
+        <% @post.steps.each do |step|%>
+            <label for="step">Step # <%=ingredient_counter%> </label><br>
+            <textarea class="large-form" type="text" name="post[step][][content]"><%= step.content %>"</textarea><br><br>
+            <% ingredient_counter += 1 %>
+        <%end%>
     </div>
 
-    <div>
-        <input class="custom-button" type="file" name="post[avatar]" value="<%= @post.avatar %>"><br>
-    
-    </div>
+
         <button type="submit" class="custom-button">Save</button>
     </form>
 
