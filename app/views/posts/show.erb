@@ -12,11 +12,16 @@
    
     
     <div class="wrapper">
-
-       <% @post.ingredients.each do |ingredient| %>
-            <%= ingredient.name %> 
-        <% end %>
-        
+        <table class="center">
+            <h2>Ingredients</h2><br>
+            <% @post.ingredients.each do |ingredient| %>
+                <tr><ol>
+                    <td><li><%= ingredient.name %></li></td>
+                    <td><%= ingredient.ingredient_posts[0].amount %></td>
+                    <td><%= ingredient.ingredient_posts[0].measurement_type %></li></td>
+                </tr></ol>
+            <% end %>
+        </table>
     </div>
 
 
