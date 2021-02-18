@@ -1,6 +1,6 @@
 class Ingredient < ActiveRecord::Base
 
-    has_many :ingredientposts
-    has_many :posts, through: :ingredientposts
+    has_many :ingredient_posts
+    has_many :posts, through: :ingredient_posts
     
 end

@@ -36,7 +36,7 @@ class PostController < ApplicationController
             post = Post.create(
                 
                 title: params[:post][:title], 
-                content: params[:post][:content],
+                description: params[:post][:description],
                 user_id: session[:user_id],
                 avatar: params[:post][:photo]
             )
@@ -49,18 +49,14 @@ class PostController < ApplicationController
             end
             
             params[:post][:ingredients].each do |ingredient|
-                binding.pry
-              new_ingredient = Ingredient.create(
-                  name: ingredient[:name],
-                  post_id: post.id)
-                    binding.pry
-                IngredientPost.create(
-                   amount: ingredient[:amount], 
-                   measurement_type: ingredient[:measurement_type],
-                   post_id: post.id,
-                   ingredient_id: new_ingredient.id
-                   )
+                
+                i = Ingredient.find_or_create_by(name: ingredient[:name])
+                post.ingredients << i
 
+                ip = IngredientPost.last
+                ip.amount = ingredient[:amount]
+                ip.measurement_type = ingredient[:measurement]
+                ip.save
             end
         redirect "/posts/#{post.id}"
     end

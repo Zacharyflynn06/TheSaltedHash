@@ -25,15 +25,13 @@ ActiveRecord::Schema.define(version: 2021_02_11_192019) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_ingredients_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.text "description"
     t.string "avatar"
     t.integer "user_id"
     t.datetime "created_at", null: false
