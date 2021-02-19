@@ -15,8 +15,8 @@
     </div>
 
     <div class="wrapper">   
-        <h4><label for="post[content]">Description</label> <br>
-            <textarea class="large-form" name="post[content]"><%= @post.description %></textarea><br>
+        <h4><label for="post[description]">Description</label> <br>
+            <textarea class="large-form" name="post[description]"><%= @post.description %></textarea><br>
     </div>
 
     <div class = "wrapper">
@@ -29,19 +29,19 @@
         <table class="center">
             <h3>Ingredients</h3><br>
             <tr>
-                <th></th>
-                <th>Ingredient</th>
-                <th>Amount</th>
-                <th>Measurement</th>
+                <h4><th></th><h4>
+                <h4><th>Ingredient</th><h4>
+                <h4><th>Amount</th><h4>
+                <h4><th>Measurement</th><h4>
             </tr>
             <%counter = 1%>
             <% @post.ingredients.each do |ingredient|%>
-                <tr>
-                    <td><label>Ingredient #<%=counter%></label></td>
+                <tr><h4>
+                    <h4><td><label>Ingredient <%=counter%></label></td></h4>
                     <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= ingredient.name %>"></td>
                     <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= ingredient.ingredient_posts[0].amount %>"></td>
                     <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= ingredient.ingredient_posts[0].measurement_type %>"></td>
-                </tr>
+                </h4></tr>
                 <%counter += 1%>
             <%end%>
         </table>
@@ -50,8 +50,8 @@
     <div class="wrapper">
         <% ingredient_counter = 1%>
         <% @post.steps.each do |step|%>
-            <label for="step">Step # <%=ingredient_counter%> </label><br>
-            <textarea class="large-form" type="text" name="post[step][][content]"><%= step.content %>"</textarea><br><br>
+            <h4><label for="step">Step <%=ingredient_counter%> </label><br>
+            <textarea class="large-form" type="text" name="post[step][][content]"><%= step.content %>"</textarea><br><br></h4>
             <% ingredient_counter += 1 %>
         <%end%>
     </div>

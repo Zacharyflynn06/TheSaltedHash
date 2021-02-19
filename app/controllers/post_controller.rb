@@ -48,13 +48,18 @@ class PostController < ApplicationController
             
             params[:post][:ingredients].each do |ingredient|
                 
-                i = Ingredient.find_or_create_by(name: ingredient[:name])
-                post.ingredients << i
+                i = Ingredient.find_or_create_by(
+                    name: ingredient[:name]
+                )
+                
+                IngredientPost.create(
+                    ingredient: i, 
+                    post: post,
+                    amount: ingredient[:amount], 
+                    measurement_type: ingredient[:measurement]
+                )
 
-                ip = IngredientPost.last
-                ip.amount = ingredient[:amount]
-                ip.measurement_type = ingredient[:measurement]
-                ip.save
+
             end
         redirect "/posts/#{post.id}"
     end
