@@ -1,4 +1,4 @@
-<%if @user.id == session["user_id"]%>
+<%if logged_in?%>
 
     <div class="wrapper">
         <h2>Welcome Home, <%= @user.first_name %></h2><br>
@@ -13,10 +13,14 @@
     
     
 <%end%>
+<%binding.pry%>
+        <% if @user.avatar.file.nil? %>
 
-    <h5><%= @user.bio %></h5>
+            <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture!</a>
 
- </div>
+        <% end %>
+        <h5><%= @user.bio %></h5>
+    </div>
 
 <div class="post">
 
@@ -29,6 +33,9 @@
     </div>
 <%end%>
 
-<% if @user.id == session["user_id"] %>
-    <a href="/users/<%= @user.id %>/edit" class="custom-button">Edit Your Profile</a>
+
+<% if logged_in?%>
+    <div class="wrapper">
+        <a href="/users/<%= @user.id %>/edit" class="custom-button">Edit Your Profile</a>
+    </div>
 <% end %>

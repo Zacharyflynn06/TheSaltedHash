@@ -12,6 +12,7 @@
         <% @post.ingredients.each do |ingredient| %>
             <tr><ol>
                 <td><li><%= ingredient.name %></li></td>
+                <td>   </td>
                 <td><%= ingredient.ingredient_posts[0].amount %></td>
                 <td><%= ingredient.ingredient_posts[0].measurement_type %></li></td>
             </tr></ol>

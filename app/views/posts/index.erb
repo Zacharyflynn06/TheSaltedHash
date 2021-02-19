@@ -3,11 +3,11 @@
     <h1>News Feed</h1>
 </div>
 
-<% # how do i make this a news feed? %>
 
 <div class="center">
     
     <% @posts.each do |post|%>
+    
         <div class="wrapper">
             <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
             <img src="<%= post.avatar %>" alt="post-photo" class="post">
@@ -17,6 +17,5 @@
         </div>
 
     <% end %>
-    
 
 </div>
