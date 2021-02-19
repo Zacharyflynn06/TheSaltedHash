@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-    <h1>Here are all the Users</h1>
+    <h2>Users</h2>
 
 </div>
 
@@ -10,6 +10,7 @@
         <h2><a href="/users/<%= user.id %>"><%= user.username %></a></h2>
         <img src="<%= user.avatar.url %>" alt="profile picture">
         <h3><%= user.first_name %> <%= user.last_name %></h3>
+        <p><%= user.bio %></p>
     </div>
 
 <% end %>

@@ -6,8 +6,9 @@
 </div>
 
 <div class="wrapper">
-    <table class="center">
-        <h2>Ingredients</h2><br>
+    <table class="left">
+        <h2>Ingredients</h2>
+
         <% @post.ingredients.each do |ingredient| %>
             <tr><ol>
                 <td><li><%= ingredient.name %></li></td>

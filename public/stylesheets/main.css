@@ -31,6 +31,10 @@
     margin-right: auto;
   }
 
+  .left {
+    text-align: left;
+  }
+
   .wrapper {
     background: #eeeeee;
     box-shadow: 0 0 50px #303841;
