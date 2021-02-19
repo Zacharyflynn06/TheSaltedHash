@@ -58,8 +58,6 @@ class PostController < ApplicationController
                     amount: ingredient[:amount], 
                     measurement_type: ingredient[:measurement]
                 )
-
-
             end
         redirect "/posts/#{post.id}"
     end
@@ -67,16 +65,22 @@ class PostController < ApplicationController
     patch '/posts/:id' do
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
-
         post = Post.find(params[:id])
-
-        ingredients = params[:post][:ingredients].each do |ingredient|
-            Ingredient.find_by(id: post.id)
-        end
+        post.update(
+            title: params[:post][:title], 
+            description: params[:post][:description],
+            avatar: params[:post][:photo]
+        )
         
-        binding.pry
-        post.update(params[:post])
+        post_counter = 0
+        post.steps.each do |step|
+            step.update(params[:post][:step][post_counter])
+            post_counter += 1
+        end
+
         redirect "/posts/#{post.id}"
+
+            
     end
 
     delete '/posts/:id' do

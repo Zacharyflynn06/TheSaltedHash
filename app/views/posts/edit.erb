@@ -50,7 +50,7 @@
     <div class="wrapper">
         <% ingredient_counter = 1%>
         <% @post.steps.each do |step|%>
-            <h4><label for="step">Step <%=ingredient_counter%> </label><br>
+            <h4><label for="post[steps][][content]">Step <%=ingredient_counter%> </label><br>
             <textarea class="large-form" type="text" name="post[step][][content]"><%= step.content %>"</textarea><br><br></h4>
             <% ingredient_counter += 1 %>
         <%end%>
