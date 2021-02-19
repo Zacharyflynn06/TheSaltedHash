@@ -2,6 +2,7 @@ class PostController < ApplicationController
 
     #all posts
     get '/posts' do
+        flash[:alert] = "ITS WORKINGs!"
         @posts = Post.all.order("created_at DESC") 
         erb :"posts/index"
     end

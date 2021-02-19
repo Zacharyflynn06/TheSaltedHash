@@ -1,9 +1,13 @@
-<br><br><br>
 
+<% if flash[:error] %>
+    <div >
+        <h4 class="error"><%= flash[:error] %></h4>
+    </div>
+<% end %>
 
-<h1>Log In</h1>
+<div class="wrapper">
+    <h2>Log In</h2>
 
-<div>
     <form method="POST" action="/login">
         <div>
             <h5><label for="username">User Name:</label></h5>
