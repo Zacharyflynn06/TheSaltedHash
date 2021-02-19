@@ -15,7 +15,7 @@ class SessionController < ApplicationController
             flash[:success] = "Successfully logged in!"
 			redirect "/users/#{user.id}"
 		else
-            flash[:error] = "Something is not right!"
+            flash[:error] = "Invalid Username or Password"
 			redirect "/login"
 		end
 	end
