@@ -81,16 +81,13 @@ class PostController < ApplicationController
 
         ingredient_counter = 0
         post.ingredients.each do |ingredient|
-            ingredient.name = params[:post][:ingredient][ingredient_counter][:name]
-            ingredient.save
+            ingredient.update(params[:post][:ingredient][ingredient_counter][:main])
             ingredient_counter += 1
         end
 
         ingredient_post_counter = 0
         post.ingredient_posts.each do |ip|
-            ip.amount = params[:post][:ingredient][ingredient_post_counter][:amount]
-            ip.measurement_type = params[:post][:ingredient][ingredient_post_counter][:measurement]
-            ip.save
+            ip.update(params[:post][:ingredient][ingredient_post_counter][:aux])
             ingredient_post_counter += 1
         end
 
