@@ -72,10 +72,25 @@ class PostController < ApplicationController
             avatar: params[:post][:photo]
         )
         
-        post_counter = 0
+        step_counter = 0
         post.steps.each do |step|
-            step.update(params[:post][:step][post_counter])
-            post_counter += 1
+            step.update(params[:post][:step][step_counter])
+            step_counter += 1
+        end
+
+        ingredient_counter = 0
+        post.ingredients.each do |ingredient|
+            ingredient.name = params[:post][:ingredient][ingredient_counter][:name]
+            ingredient.save
+            ingredient_counter += 1
+        end
+
+        ingredient_post_counter = 0
+        post.ingredient_posts.each do |ip|
+            ip.amount = params[:post][:ingredient][ingredient_post_counter][:amount]
+            ip.measurement_type = params[:post][:ingredient][ingredient_post_counter][:measurement]
+            ip.save
+            ingredient_post_counter += 1
         end
 
         redirect "/posts/#{post.id}"

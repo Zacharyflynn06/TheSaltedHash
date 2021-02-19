@@ -38,9 +38,9 @@
             <% @post.ingredients.each do |ingredient|%>
                 <tr><h4>
                     <h4><td><label>Ingredient <%=counter%></label></td></h4>
-                    <td><input class="small-form" type="text" name="post[ingredients][][name]" value="<%= ingredient.name %>"></td>
-                    <td><input class="small-form" type="text" name="post[ingredients][][amount]" value="<%= ingredient.ingredient_posts[0].amount %>"></td>
-                    <td><input class="small-form" type="text" name="post[ingredients][][measurement]" value="<%= ingredient.ingredient_posts[0].measurement_type %>"></td>
+                    <td><input class="small-form" type="text" name="post[ingredient][][name]" value="<%= ingredient.name %>"></td>
+                    <td><input class="small-form" type="text" name="post[ingredient][][amount]" value="<%= ingredient.ingredient_posts[0].amount %>"></td>
+                    <td><input class="small-form" type="text" name="post[ingredient][][measurement]" value="<%= ingredient.ingredient_posts[0].measurement_type %>"></td>
                 </h4></tr>
                 <%counter += 1%>
             <%end%>

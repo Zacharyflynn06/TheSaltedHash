@@ -1,24 +1,26 @@
 <br><br>
+<form action="/users/<%= @user.id %>" method="POST" enctype="multipart/form-data" >
+<input type="hidden" value="PATCH" name="_method">
 
-<h1>Add a Profile Photo</h1>
+<div class="wrapper">
 
+    <h1>Add a Profile Photo</h1>
+    <input class="custom-button" type="file" name="user[avatar]" value="<%= @user.avatar %>"><br> <br>
+</div>
 
 
 <div >
-    <form action="/users/<%= @user.id %>" method="POST" enctype="multipart/form-data" >
-    <input type="hidden" value="PATCH" name="_method">
+    
+    
         
             
-            <input class="custom-button" type="file" name="user[avatar]" value="<%= @user.avatar %>"><br> <br>
+            
+
+            <label for="user[bio]">Add a Bio!</label><br>
+            <textarea class = "large-form" name="user[bio]" id="" cols="10" rows="10"><%= @user.bio%></textarea>
+
     <table class="center">
 
-            <tr>
-                <td>
-                    <label for="user[bio]">Add a Bio!</label>
-                    <textarea class = "large-form" name="user[bio]" id="" cols="30" rows="10"><%= @user.bio%></textarea>
-                </td>
-            
-            </tr>
             <tr>
                 <td>
                     <h5><label for="first_name">First Name:</label></h5>
