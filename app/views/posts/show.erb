@@ -1,45 +1,40 @@
 
-    <div class="wrapper">
-        <h2><%= @post.title %></h2>
-        
-    </div>
+<div class="wrapper">
+    <h2><%= @post.title %></h2>
+    <img class="center" src="<%= @post.avatar %>" alt="post-photo"> 
+    <p><%= @post.description %></p> 
+</div>
 
-    <div class="wrapper">
-        <h2>Description</h2>
-        <p><%= @post.description %></p> 
-        <img class="center" src="<%= @post.avatar %>" alt="post-photo">   
-    </div>
-   
-    
-    <div class="wrapper">
-        <table class="center">
-            <h2>Ingredients</h2><br>
-            <% @post.ingredients.each do |ingredient| %>
-                <tr><ol>
-                    <td><li><%= ingredient.name %></li></td>
-                    <td><%= ingredient.ingredient_posts[0].amount %></td>
-                    <td><%= ingredient.ingredient_posts[0].measurement_type %></li></td>
-                </tr></ol>
-            <% end %>
-        </table>
-    </div>
-
-
-    <% step_counter = 1%>
-    <% @post.steps.each do |step| %>
-        <div class="wrapper">
-            <h2>Step <%= step_counter  %></h2>
-            <p><%=step.content%></p>
-            <% step_counter += 1%>
-        </div>
+<div class="wrapper">
+    <table class="center">
+        <h2>Ingredients</h2><br>
+        <% @post.ingredients.each do |ingredient| %>
+            <tr><ol>
+                <td><li><%= ingredient.name %></li></td>
+                <td><%= ingredient.ingredient_posts[0].amount %></td>
+                <td><%= ingredient.ingredient_posts[0].measurement_type %></li></td>
+            </tr></ol>
         <% end %>
+    </table>
+</div>
 
+<% step_counter = 1%>
+<% @post.steps.each do |step| %>
+    <div class="wrapper">
+        <h2>Step <%= step_counter  %></h2>
+        <p><%=step.content%></p>
+        <% step_counter += 1%>
+    </div>
+    <% end %>
+
+<% if !logged_in? %>
     <div class="wrapper">
             <h3>Author: <a href="/users/<%= @post.user.id %>"><%= @post.user.first_name %> <%= @post.user.last_name%></a></h3><br>
             <h5>Created on: <%= @post.created_at %></h5><br>
     </div>
+<% end %>
 
-<% if @post.user_id == session["user_id"] %>
+<% if logged_in? %>
    <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit Post</a>
 <% end %>
 
