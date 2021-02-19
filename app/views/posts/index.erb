@@ -10,9 +10,8 @@
     <% @posts.each do |post|%>
         <div class="wrapper">
             <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
-            <p><%= post.description %></p>
             <img src="<%= post.avatar %>" alt="post-photo" class="post">
-
+            <p><%= post.description %></p>
             <h5>Author: <a href="/users/<%= post.user.id %>"><%= post.user.first_name %> <%=post.user.last_name%></a></h5>
             <h5>Created on: <%=post.created_at %></h5> 
         </div>
