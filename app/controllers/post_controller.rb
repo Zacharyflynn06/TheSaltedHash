@@ -67,11 +67,17 @@ class PostController < ApplicationController
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
         post = Post.find(params[:id])
+
+        if params[:post][:avatar]
+            uploader = PhotoUploader.new
+            uploader.store!(params[:post][:avatar])
+        end
+
         post.update(
             title: params[:post][:title], 
             description: params[:post][:description],
-            avatar: params[:post][:photo]
-        )
+            avatar: uploader || post.avatar
+            )
         
         step_counter = 0
         post.steps.each do |step|

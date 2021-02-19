@@ -44,12 +44,10 @@ class UserController < ApplicationController
         redirect_if_not_logged_in
         #redirect_error_if_not_authorized
         
-        # binding.pry
         user = User.find(params[:id])
         uploader = PhotoUploader.new
         uploader.store!(params[:user][:avatar])
         user.update(params[:user])
-        # binding.pry
         redirect "/users/#{user.id}"
     end
 
