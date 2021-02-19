@@ -2,21 +2,20 @@
 
     <div class="wrapper">
         <h2>Welcome Home, <%= @user.first_name %></h2><br>
-        <img src="<%= @user.avatar.url %>">
-    </div>
+        <img src="<%= @user.avatar.url %>"><br><br>
+    
 
 <% else %>
 
     <div class="wrapper">
         <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
-        <img src="<%= @user.avatar.url %>">
-    </div>
+        <img src="<%= @user.avatar.url %>"><br><br>
+    
     
 <%end%>
 
-<div class="wrapper">
-    <h2>Bio</h2>
-    <h4><%= @user.bio %></h4>
+    <h5><%= @user.bio %></h5>
+
  </div>
 
 <div class="post">
@@ -24,8 +23,8 @@
 <% @user.posts.each do |post| %>
     <div class="wrapper">
         <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
-        <p><%= post.description %></p>
         <img src="<%= post.avatar %>" alt="post-photo">
+        <p><%= post.description %></p>
         <h6>Written On: <%= post.created_at %></h6>
     </div>
 <%end%>
