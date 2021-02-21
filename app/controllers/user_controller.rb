@@ -16,7 +16,7 @@ class UserController < ApplicationController
     end
 
     get '/users/:id/edit' do
-        redirect_if_not_logged_in
+        redirect_if_not_authorized
 
         @user = User.find(params[:id])
         erb :"users/edit"
