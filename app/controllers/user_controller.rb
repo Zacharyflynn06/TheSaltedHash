@@ -30,12 +30,12 @@ class UserController < ApplicationController
         
         user = User.new(params[:user])
         if user.valid?
-            flash[:success] = "Success"
+            flash[:success] = "Success, Thank you for signing up!"
             user.save
             session["user_id"] = user.id
             redirect "/users/#{user.id}"
         else
-            flash[:error] = "Something went wrong"
+            flash[:error] = "Something went wrong, please try again"
             redirect '/signup'
         end
     end

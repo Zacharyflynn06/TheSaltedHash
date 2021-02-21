@@ -34,8 +34,10 @@
     <div>
 
     <% flash.keys.each do |type| %>
+    <% binding.pry %>
       <div data-alert class="flash">
          <%= flash[type] %>
+         <% binding.pry %>
       </div>
     <% end %>
 
