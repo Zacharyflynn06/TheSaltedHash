@@ -1,21 +1,19 @@
-<div class="wrapper">
-    <h1>Add Your Recipe Below!</h1>
-</div>
-
 
 <form action="/posts" method="POST" enctype="multipart/form-data">
 
+<div class="wrapper">
+    <h2>Add Your Recipe Below!</h2>
+
+
+    <h4><label for="title">Title</label><br>
+        <input class="small-form" type="text" name="post[title]"><br>
+    <label for="description">Description</label> <br>
+        <textarea cols="30" rows="10" class="large-form" name="post[description]" type="text"></textarea><br>
+
+</div>
+
     <div class="wrapper">
-
-        <h4><label for="title">Title</label><br>
-            <input class="small-form" type="text" name="post[title]"><br>
-
-        <label for="description">Description</label> <br>
-            <textarea cols="30" rows="10" class="large-form" name="post[description]" type="text"></textarea><br>
-    </div>
-
-    <div class="wrapper">
-        <h4><label for="main_photo">Upload the main photo here:</label><br><br>
+        <h4><label for="main_photo">Upload a photo here:</label><br><br>
         <input class="custom-button" type="file" name="post[photo]" value="Upload a Picture!"><br></h4>
     </div>
 
@@ -30,37 +28,37 @@
                 <th>Measurement</th>
             </tr>
             <tr>
-                <h4><td><label for="first-ingredient">1st Ingredient</label></td></h4>
+                <h4><td><label for="first-ingredient">Ingredient 1</label></td></h4>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
             <tr>
-                <td><label for="second-ingredient">2nd Ingredient</label></td>
+                <td><label for="second-ingredient">Ingredient 2</label></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
             <tr>
-                <td><label for="third-ingredient">3rd Ingredient</label></td>
+                <td><label for="third-ingredient">Ingredient 3</label></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
             <tr>
-                <td><label for="fourth-ingredient">4th Ingredient</label></td>
+                <td><label for="fourth-ingredient">Ingredient 4</label></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
             <tr>
-                <td><label for="fifth-ingredient">5th Ingredient</label></td>
+                <td><label for="fifth-ingredient">Ingredient 5</label></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
             </tr>
                     <tr>
-                <td><label for="six-ingredient">6th Ingredient</label></td>
+                <td><label for="six-ingredient">Ingredient 6</label></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][name]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][amount]"></td>
                 <td><input class="small-form" type="text" name="post[ingredients][][measurement]"></td>
@@ -74,7 +72,6 @@
         <h2>Instructions</h2><br>
         <h4><label for="step[one]">Step 1</label><br>
             <textarea cols="30" rows="5" class="large-form" type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 1 Photo"><br></h4>
     </div>
 
 
@@ -82,35 +79,30 @@
 
         <h4><label for="step[two]">Step 2</label><br>
             <textarea cols="30" rows="5" class="large-form" type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 2 Photo"><br></h4>
     </div>
 
     <div class="wrapper">
 
         <h4><label for="step[three]">Step 3</label><br>
             <textarea cols="30" rows="5" class="large-form" type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 3 Photo"><br></h4> 
     </div>
 
     <div class="wrapper">
 
         <h4><label for="step[four]">Step 4</label><br>
             <textarea cols="30" rows="5" class="large-form" type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 4 Photo"><br></h4> 
     </div>
 
     <div class="wrapper">
 
         <h4><label for="step[five]">Step 5</label><br>
             <textarea cols="30" rows="5" class="large-form"  type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 5 Photo"><br></h4> 
     </div>
 
     <div class="wrapper">
 
         <h4><label for="step[six]">Step 6</label><br>
             <textarea cols="30" rows="5" class="large-form" type="text" name="post[step][][content]"></textarea><br><br>
-            <input class="custom-button" type="file" name="post[step][][avatar" value="Step 6 Photo"><br></h4>       
     </div>
 
     

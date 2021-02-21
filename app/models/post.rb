@@ -1,5 +1,3 @@
-require_relative 'photo_uploader'
-
 class Post < ActiveRecord::Base
     
     belongs_to :user

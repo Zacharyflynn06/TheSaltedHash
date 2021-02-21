@@ -12,6 +12,12 @@
     padding-bottom: 2em;
   }
 
+  .profile-picture {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+  }
+
   html, body {
     height: 100%;
     width: 100%;
@@ -21,7 +27,7 @@
   body {
     background-color:#00adb5;
     color: Black;
-    font-family: Georgia, serif;
+    font-family: 'Permanent Marker', cursive;
     line-height: 18px;
     text-align: center;
   }

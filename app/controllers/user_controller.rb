@@ -45,9 +45,22 @@ class UserController < ApplicationController
         #redirect_error_if_not_authorized
         
         user = User.find(params[:id])
-        uploader = PhotoUploader.new
-        uploader.store!(params[:user][:avatar])
-        user.update(params[:user])
+
+        if params[:user][:avatar]
+            uploader = PhotoUploader.new
+            uploader.store!(params[:user][:avatar])
+        end
+        binding.pry
+        user.update(
+            
+            first_name: params[:user][:first_name],
+            last_name: params[:user][:last_name],
+            username: params[:user][:username],
+            email: params[:user][:email],
+            bio: params[:user][:bio],
+            avatar: uploader || user.avatar
+        )
+        binding.pry
         redirect "/users/#{user.id}"
     end
 
