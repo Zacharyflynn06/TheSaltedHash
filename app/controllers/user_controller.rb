@@ -30,12 +30,12 @@ class UserController < ApplicationController
         
         user = User.new(params[:user])
         if user.valid?
-            #flash[:success] = "Success"
+            flash[:success] = "Success"
             user.save
             session["user_id"] = user.id
             redirect "/users/#{user.id}"
         else
-            #flash[:error] = "Something went wrong"
+            flash[:error] = "Something went wrong"
             redirect '/signup'
         end
     end
@@ -50,7 +50,7 @@ class UserController < ApplicationController
             uploader = PhotoUploader.new
             uploader.store!(params[:user][:avatar])
         end
-        binding.pry
+
         user.update(
             
             first_name: params[:user][:first_name],
@@ -60,7 +60,7 @@ class UserController < ApplicationController
             bio: params[:user][:bio],
             avatar: uploader || user.avatar
         )
-        binding.pry
+ 
         redirect "/users/#{user.id}"
     end
 
