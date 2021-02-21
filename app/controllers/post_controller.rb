@@ -2,7 +2,6 @@ class PostController < ApplicationController
 
     #all posts
     get '/posts' do
-        flash[:alert] = "ITS WORKINGs!"
         @posts = Post.all.order("created_at DESC") 
         erb :"posts/index"
     end
@@ -10,22 +9,21 @@ class PostController < ApplicationController
     #new post
     get '/posts/new' do
         redirect_if_not_logged_in
-            erb :'posts/new'
+        erb :'posts/new'
     end
 
     #one post
     get '/posts/:id' do
-        
-            @post = Post.find(params[:id])
-            @ingredients = @post.ingredients
-            erb :"posts/show"
+        @post = Post.find(params[:id])
+        @ingredients = @post.ingredients
+        erb :"posts/show"
     end
 
     #edit one post
     get '/posts/:id/edit' do
-        redirect_if_not_logged_in
-            @post = Post.find(params[:id])
-            erb :"posts/edit"
+        redirect_if_not_authorized
+        @post = Post.find(params[:id])
+        erb :"posts/edit"
     end
 
     #create post

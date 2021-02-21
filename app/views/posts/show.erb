@@ -36,7 +36,7 @@
     </div>
 <% end %>
 
-<% if logged_in? %>
+<% if current_user == @post.user %>
    <a href="/posts/<%= @post.id %>/edit" class="custom-button">Edit Post</a>
 <% end %>
 

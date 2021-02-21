@@ -3,6 +3,7 @@ class SessionController < ApplicationController
 
     #login form
     get '/login' do
+        redirect_if_logged_in
         erb :'sessions/new'
     end
 

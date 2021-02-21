@@ -27,16 +27,28 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_logged_in
-        
       
-      flash[:error] = "Please sign in to complete this action!"
-      redirect "/login"
+      if !logged_in?
+        flash[:error] = "Please sign in to complete this action!"
+        redirect "/login"
+      end
       
 
     end
 
     def redirect_if_logged_in
-      redirect "/posts" if logged_in?
+      if logged_in?
+        flash[:error] = "You are already logged in! \n
+        Please logout to login to another account!"
+        redirect "/posts"
+      end
+    end
+
+    def redirect_if_not_authorized
+      if current_user != params[:id]
+        flash[:error] = "You are not authorized"
+        redirect "/posts"
+      end
     end
     
   end

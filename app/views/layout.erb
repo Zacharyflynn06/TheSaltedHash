@@ -19,25 +19,26 @@
       <ul class="nav">
             
         <% if logged_in? %>
+
           <li class="nav"><a href="/users/<%= session["user_id"] %>">Home</a></li>
           <li class="nav"><a href="/posts">All Recipies</a></li>
-          
           <li class="nav"><a href="/users">All Users</a></li>
           <li class="nav"><a href="/posts/new">New Post</a></li>
           <li style="float:right" class="nav"><a href="/logout">Logout</a></li>
+        
         <%else%>
+          
           <li class="nav"><a href="/posts">All Recipies</a></li>
           <li class="nav"><a href="/login">Login</a></li>
           <li class="nav"><a href="/signup">Sign Up</a></li>
+          
         <%end%>
       </ul>
     <div>
 
     <% flash.keys.each do |type| %>
-    <% binding.pry %>
       <div data-alert class="flash">
          <%= flash[type] %>
-         <% binding.pry %>
       </div>
     <% end %>
 
