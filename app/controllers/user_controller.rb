@@ -10,18 +10,16 @@ class UserController < ApplicationController
         erb :'users/index'
     end
 
-    get '/users/:id' do
-        # redirect_if_not_logged_in
-      
-            @user = User.find(params[:id])
-            erb :"users/show"
+    get '/users/:id' do      
+        @user = User.find(params[:id])
+        erb :"users/show"
     end
 
     get '/users/:id/edit' do
         redirect_if_not_logged_in
-            @user = User.find(params[:id])
-  
-            erb :"users/edit"
+
+        @user = User.find(params[:id])
+        erb :"users/edit"
     end
     
 
@@ -42,7 +40,6 @@ class UserController < ApplicationController
 
     patch '/users/:id' do
         redirect_if_not_logged_in
-        #redirect_error_if_not_authorized
         
         user = User.find(params[:id])
 

@@ -64,7 +64,6 @@ class PostController < ApplicationController
 
     patch '/posts/:id' do
         redirect_if_not_logged_in
-        #redirect_error_if_not_authorized
         post = Post.find(params[:id])
 
         if params[:post][:avatar]
