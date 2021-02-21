@@ -6,10 +6,11 @@
     padding: 0;
   }
   img {
+    box-shadow: 0 0 10px #303841;
     max-width:100%;
     height: auto;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   .flash {
@@ -50,12 +51,12 @@
 
   .wrapper {
     background: #eeeeee;
-    box-shadow: 0 0 40px #303841;
+    box-shadow: 0 0 20px #303841;
     margin: 40px auto;
     padding: 2em;
     max-width: 960px;
     width: 60%;
-    border-radius: 20px;
+    border-radius: 5px;
   }
 
   .custom-button {
@@ -67,7 +68,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 25px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px #303841;
   }
   a.button {
     background-color: #ff5722;
