@@ -12,6 +12,14 @@
     padding-bottom: 2em;
   }
 
+  .flash {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    width: 100%;
+    background-color: #ff5722;
+    color: white;
+  }
+
   .profile-picture {
     width: 50%;
     height: auto;
@@ -23,7 +31,6 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
   body {
     background-color:#00adb5;
     color: Black;
@@ -100,8 +107,6 @@
     position: relative;
     border-radius: 10px;
     border: 2px solid #ff5722;
-    
-    
   }
 
   .signup-form {
@@ -125,7 +130,6 @@
     padding: 20px;
     font-size: 36px;
     line-height: 54px;
-  
   }
 
   h2 {
