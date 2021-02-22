@@ -6,7 +6,6 @@
     padding: 0;
   }
   img {
-    box-shadow: 0 0 10px #303841;
     max-width:100%;
     height: auto;
     margin-top: 1em;
@@ -22,7 +21,7 @@
   }
 
   .profile-picture {
-    width: 50%;
+    width: 30%;
     height: auto;
     border-radius: 50%;
   }
@@ -35,9 +34,9 @@
   body {
     background-color:#00adb5;
     color: Black;
-    font-family: 'Permanent Marker', cursive;
     line-height: 18px;
     text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif
   }
 
   .center {
@@ -51,7 +50,7 @@
 
   .wrapper {
     background: #eeeeee;
-    box-shadow: 0 0 20px #303841;
+    box-shadow: 0 0 30px #303841;
     margin: 40px auto;
     padding: 2em;
     max-width: 960px;

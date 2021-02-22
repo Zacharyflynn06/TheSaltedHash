@@ -1,25 +1,26 @@
 <%if logged_in?%>
 
     <div class="wrapper">
-        <h2>Welcome Home, <%= @user.first_name %></h2><br>
+        <h2>Welcome Home, <%= @user.first_name.capitalize %></h2><br>
         <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
     
 
 <% else %>
 
     <div class="wrapper">
-        <h1><%= @user.first_name %> <%= @user.last_name %>'s Homepage!</h1>
+        <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Homepage!</h1>
         <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
     
-    
 <%end%>
-        <% if @user.avatar.file.nil? %>
 
-            <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture!</a>
 
-        <% end %>
-        <h5><%= @user.bio %></h5>
-    </div>
+<% if @user.avatar.file.nil? %>
+    <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture!</a>
+<% end %>
+
+    <h3>Bio:</h3>
+    <p><%= @user.bio %></p>
+</div>
 
 <div class="post">
 
