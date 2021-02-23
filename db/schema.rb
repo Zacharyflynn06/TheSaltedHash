@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_204635) do
+ActiveRecord::Schema.define(version: 2021_02_11_192019) do
 
   create_table "ingredient_posts", force: :cascade do |t|
     t.integer "post_id"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_204635) do
 
   create_table "steps", force: :cascade do |t|
     t.text "content"
-    t.string "avatar"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

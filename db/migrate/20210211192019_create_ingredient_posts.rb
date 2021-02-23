@@ -4,7 +4,7 @@ class CreateIngredientPosts < ActiveRecord::Migration[5.2]
       t.references :post
       t.references :ingredient
       
-      t.integer :amount
+      t.string :amount
       t.string :measurement_type
 
       t.timestamps null: false
