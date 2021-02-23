@@ -15,15 +15,18 @@
 <%end%>
 
 
-<% if @user.avatar.file.nil? %>
-    <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture!</a>
-<% end %>
+
 
 <div class="wrapper">
 
-    <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
-    <h3>Bio:</h3>
-    <p><%= @user.bio %></p>
+    <% if @user.avatar.file.nil? %>
+        <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture and bio!</a><br><br>
+    <% else %>
+        <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
+        <h3>Bio:</h3>
+        <p><%= @user.bio %></p>
+    <% end %>
+    
 </div>
 
 <div class="post">
