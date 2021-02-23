@@ -39,8 +39,17 @@
                     <input class="small-form" type="password" name="user[password]" value="<%= @user.password %>">
         <div>
         <br>
-            <button type="submit" class="custom-button">Save</button>
+            <button type="submit" class="custom-button">Save</button><br><br>
         </div>
     </form>
+
+        <% if logged_in? %>
+
+        <form method="POST" action="/user/<%= @user.id %>">
+            <input type="hidden" value="DELETE" name="_method">
+            <input class="custom-button" type="submit" value="Delete Profile">
+        </form>
+
+    <%end%>
 
 </div>

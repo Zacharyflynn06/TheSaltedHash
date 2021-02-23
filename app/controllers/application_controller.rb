@@ -46,7 +46,6 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_authorized
-      binding.pry
       if current_user.id != params[:id].to_i
         flash[:error] = "You are not authorized"
         redirect "/posts"

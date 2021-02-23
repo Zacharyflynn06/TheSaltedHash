@@ -61,5 +61,11 @@ class UserController < ApplicationController
         redirect "/users/#{user.id}"
     end
 
-    
+    delete '/users/:id' do
+        redirect_if_not_authorized
+        user = User.find(params[:id])
+        user.delete
+        redirect "/posts"
+    end
+
 end
