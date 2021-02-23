@@ -1,15 +1,16 @@
 <%if logged_in?%>
 
     <div class="wrapper">
-        <h2>Welcome Home, <%= @user.first_name.capitalize %></h2><br>
-        <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
+        <h1>Welcome Home, <%= @user.first_name.capitalize %></h1><br>
+    </div>
+        
     
 
 <% else %>
 
     <div class="wrapper">
         <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Homepage!</h1>
-        <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
+    </div>
     
 <%end%>
 
@@ -18,6 +19,9 @@
     <a href="/users/<%= @user.id %>/edit" class="custom-button">Add a profile picture!</a>
 <% end %>
 
+<div class="wrapper">
+
+    <img src="<%= @user.avatar.url %>" class="profile-picture"><br><br>
     <h3>Bio:</h3>
     <p><%= @user.bio %></p>
 </div>
