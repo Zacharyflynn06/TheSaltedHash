@@ -15,9 +15,10 @@
   </head>
 
   <body>
+
   
       <ul class="nav">
-          <li class="nav"><a href="/posts">The Salted Hash</a></li>
+
         <% if logged_in? %>
 
           <li class="nav"><a href="/users/<%= session["user_id"] %>">Home</a></li>
@@ -34,6 +35,8 @@
           
         <%end%>
       </ul>
+
+      
     <div>
 
     <% flash.keys.each do |type| %>

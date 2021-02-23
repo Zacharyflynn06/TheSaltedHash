@@ -129,8 +129,16 @@
     text-align: center;
   }
 
+  .title {
+    text-align: center;
+    font-size: 20px;
+    color: #00adb5;
+    position: absolute;
+    width: 50%;
+  }
+
   h1 {
-    padding: 20px;
+
     font-size: 36px;
     line-height: 54px;
   }
@@ -207,7 +215,6 @@
   li.nav a:hover {
     background-color: #ff5722;
   }
-
 
   .ingredients {
     text-align: left;
