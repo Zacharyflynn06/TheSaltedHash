@@ -10,8 +10,9 @@
 /test/version_tmp/
 /tmp/
 /NOTES
-# Used by dotenv library to load environment variables.
 .env
+# Used by dotenv library to load environment variables.
+
 
 # Ignore Byebug command history file.
 .byebug_history

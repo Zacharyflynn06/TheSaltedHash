@@ -5,9 +5,10 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    use Rack::Session::Cookie, :key => 'rack.session',
-                           :path => '/',
-                           :secret => ENV['SESSION_SECRET']
+    use Rack::Session::Cookie, 
+                          :key => 'rack.session',
+                          :path => '/',
+                          :secret => ENV['SESSION_SECRET']
     
     register Sinatra::Flash
   end
@@ -45,7 +46,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_authorized
-      if current_user != params[:id]
+      binding.pry
+      if current_user.id != params[:id].to_i
         flash[:error] = "You are not authorized"
         redirect "/posts"
       end
