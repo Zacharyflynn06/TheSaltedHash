@@ -45,7 +45,7 @@
 
         <% if logged_in? %>
 
-        <form method="POST" action="/user/<%= @user.id %>">
+        <form method="POST" action="/users/<%= @user.id %>">
             <input type="hidden" value="DELETE" name="_method">
             <input class="custom-button" type="submit" value="Delete Profile">
         </form>

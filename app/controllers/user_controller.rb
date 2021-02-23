@@ -16,9 +16,13 @@ class UserController < ApplicationController
     end
 
     get '/users/:id/edit' do
-        redirect_if_not_authorized
 
         @user = User.find(params[:id])
+        binding.pry
+        if current_user.id != @user.id
+            redirect_if_not_authorized
+        end
+
         erb :"users/edit"
     end
     
@@ -62,10 +66,9 @@ class UserController < ApplicationController
     end
 
     delete '/users/:id' do
-        redirect_if_not_authorized
         user = User.find(params[:id])
         user.delete
-        redirect "/posts"
+        redirect "/users/signup"
     end
 
 end

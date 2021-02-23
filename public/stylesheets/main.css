@@ -72,6 +72,10 @@
     box-shadow: 0 0 10px #303841;
   }
 
+  .custom-button:hover {
+    color: black;
+  }
+
   a.button {
     background-color: #ff5722;
     border: none;
@@ -90,6 +94,7 @@
 
   a:hover {
     color: #ff5722;
+
   }
 
   .small-form {

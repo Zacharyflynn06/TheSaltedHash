@@ -21,8 +21,10 @@ class PostController < ApplicationController
 
     #edit one post
     get '/posts/:id/edit' do
-        redirect_if_not_authorized
         @post = Post.find(params[:id])
+        if current_user.id != @post.user_id
+            redirect_if_not_authorized
+        end
         erb :"posts/edit"
     end
 
@@ -61,8 +63,11 @@ class PostController < ApplicationController
     end
 
     patch '/posts/:id' do
-        redirect_if_not_logged_in
         post = Post.find(params[:id])
+
+        if current_user.id != post.user_id
+            redirect_if_not_authorized
+        end
 
         if params[:post][:avatar]
             uploader = PhotoUploader.new
