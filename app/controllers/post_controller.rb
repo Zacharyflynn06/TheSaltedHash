@@ -3,7 +3,7 @@ class PostController < ApplicationController
     #all posts
     get '/posts' do
         #@posts = Post.all.order("created_at DESC") 
-        @posts=Post.all.order('RANDOM()')
+        @posts = Post.all.order('RANDOM()')
         erb :"posts/index"
     end
 
@@ -22,10 +22,15 @@ class PostController < ApplicationController
 
     #edit one post
     get '/posts/:id/edit' do
+
+        redirect_if_not_logged_in
         @post = Post.find(params[:id])
+        
         if current_user.id != @post.user_id
-            redirect_if_not_authorized
+            flash[:error] = "You are not authorized"
+            redirect "/posts"
         end
+
         erb :"posts/edit"
     end
 
@@ -63,11 +68,13 @@ class PostController < ApplicationController
         redirect "/posts/#{post.id}"
     end
 
+    #edit post
     patch '/posts/:id' do
         post = Post.find(params[:id])
 
         if current_user.id != post.user_id
-            redirect_if_not_authorized
+            flash[:error] = "You are not authorized"
+            redirect "/posts"
         end
 
         if params[:post][:avatar]
@@ -104,7 +111,14 @@ class PostController < ApplicationController
             
     end
 
+    #delete post
     delete '/posts/:id' do
+
+        if current_user.id != post.user_id
+            flash[:error] = "You are not authorized"
+            redirect "/posts"
+        end
+
         redirect_if_not_logged_in
         post = Post.find(params[:id])
         post.delete

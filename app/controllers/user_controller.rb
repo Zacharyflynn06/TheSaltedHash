@@ -17,6 +17,8 @@ class UserController < ApplicationController
 
     get '/users/:id/edit' do
 
+        redirect_if_not_logged_in
+
         @user = User.find(params[:id])
 
         if current_user.id != @user.id
@@ -43,8 +45,7 @@ class UserController < ApplicationController
     end
 
     patch '/users/:id' do
-        redirect_if_not_logged_in
-        
+
         user = User.find(params[:id])
 
         if params[:user][:avatar]
@@ -66,7 +67,14 @@ class UserController < ApplicationController
     end
 
     delete '/users/:id' do
+        redirect_if_not_logged_in
+        
         user = User.find(params[:id])
+
+        if current_user.id != user.id
+            redirect_if_not_authorized
+        end
+
         user.delete
         redirect "/"
     end
