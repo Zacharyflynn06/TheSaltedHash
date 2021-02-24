@@ -1,7 +1,7 @@
 <%if logged_in?%>
 
     <div class="wrapper">
-        <h1>Welcome Home, <%= @user.first_name.capitalize %></h1><br>
+        <h2><%= @user.first_name.capitalize %>'s Homepage</h2><br>
     </div>
         
     
@@ -9,12 +9,10 @@
 <% else %>
 
     <div class="wrapper">
-        <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Homepage!</h1>
+        <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Homepage</h1>
     </div>
     
 <%end%>
-
-
 
 
 <div class="wrapper">
