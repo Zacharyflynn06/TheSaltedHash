@@ -24,11 +24,11 @@ class PostController < ApplicationController
     get '/posts/:id/edit' do
 
         redirect_if_not_logged_in
+        
         @post = Post.find(params[:id])
         
         if current_user.id != @post.user_id
-            flash[:error] = "You are not authorized"
-            redirect "/posts"
+            redirect_if_not_authorized
         end
 
         erb :"posts/edit"
