@@ -6,7 +6,7 @@ class UserController < ApplicationController
     end
 
     get '/users' do
-        @users = User.all
+        @users = User.all.order('RANDOM()')
         erb :'users/index'
     end
 

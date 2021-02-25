@@ -2,7 +2,6 @@ class PostController < ApplicationController
 
     #all posts
     get '/posts' do
-        #@posts = Post.all.order("created_at DESC") 
         @posts = Post.all.order('RANDOM()')
         erb :"posts/index"
     end
@@ -24,7 +23,7 @@ class PostController < ApplicationController
     get '/posts/:id/edit' do
 
         redirect_if_not_logged_in
-        
+
         @post = Post.find(params[:id])
         
         if current_user.id != @post.user_id
