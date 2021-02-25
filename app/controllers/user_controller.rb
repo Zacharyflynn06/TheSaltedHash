@@ -21,9 +21,7 @@ class UserController < ApplicationController
 
         @user = User.find(params[:id])
 
-        if current_user.id != @user.id
-            redirect_if_not_authorized
-        end
+        redirect_if_not_authorized(@user.id)
 
         erb :"users/edit"
     end
@@ -39,7 +37,7 @@ class UserController < ApplicationController
             session["user_id"] = user.id
             redirect "/users/#{user.id}"
         else
-            flash[:error] = "Something went wrong, please try again"
+            flash[:error] = user.errors.full_messages.to_sentence
             redirect '/signup'
         end
     end

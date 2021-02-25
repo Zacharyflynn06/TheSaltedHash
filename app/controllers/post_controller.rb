@@ -14,8 +14,10 @@ class PostController < ApplicationController
 
     #one post
     get '/posts/:id' do
+
         @post = Post.find(params[:id])
-        erb :"posts/show"
+        
+            erb :"posts/show"
     end
 
     #edit one post
@@ -25,9 +27,7 @@ class PostController < ApplicationController
 
         @post = Post.find(params[:id])
         
-        if current_user.id != @post.user_id
-            redirect_if_not_authorized
-        end
+        redirect_if_not_authorized(post.user_id)
 
         erb :"posts/edit"
     end
@@ -35,7 +35,8 @@ class PostController < ApplicationController
     #create post
     post '/posts' do
         redirect_if_not_logged_in
-            post = Post.create(
+        
+            post = Post.new(
                 
                 title: params[:post][:title], 
                 description: params[:post][:description],
@@ -43,37 +44,42 @@ class PostController < ApplicationController
                 avatar: params[:post][:photo]
             )
 
-            steps = params[:post][:step].each do |step|
-               Step.create(
-                    content: step[:content],
-                    post_id: post.id
-                )
+            if post.valid?
+                post.save
+
+                steps = params[:post][:step].each do |step|
+                   Step.create(
+                        content: step[:content],
+                        post_id: post.id
+                    )
+                end
+
+                params[:post][:ingredients].each do |ingredient|
+
+                    i = Ingredient.find_or_create_by(
+                        name: ingredient[:name]
+                    )
+
+                    IngredientPost.create(
+                        ingredient: i, 
+                        post: post,
+                        amount: ingredient[:amount], 
+                        measurement_type: ingredient[:measurement]
+                    )
+                end
+                redirect "/posts/#{post.id}"
+            else
+                flash[:error] = post.errors.full_messages.to_sentence
+                redirect"/posts/new"
             end
-            
-            params[:post][:ingredients].each do |ingredient|
-                
-                i = Ingredient.find_or_create_by(
-                    name: ingredient[:name]
-                )
-                
-                IngredientPost.create(
-                    ingredient: i, 
-                    post: post,
-                    amount: ingredient[:amount], 
-                    measurement_type: ingredient[:measurement]
-                )
-            end
-        redirect "/posts/#{post.id}"
+
     end
 
     #edit post
     patch '/posts/:id' do
         post = Post.find(params[:id])
 
-        if current_user.id != post.user_id
-            flash[:error] = "You are not authorized"
-            redirect "/posts"
-        end
+        redirect_if_not_authorized(post.user_id)
 
         if params[:post][:avatar]
             uploader = PhotoUploader.new
@@ -112,10 +118,7 @@ class PostController < ApplicationController
     #delete post
     delete '/posts/:id' do
 
-        if current_user.id != post.user_id
-            flash[:error] = "You are not authorized"
-            redirect "/posts"
-        end
+        redirect_if_not_authorized(post.user_id)
 
         redirect_if_not_logged_in
         post = Post.find(params[:id])

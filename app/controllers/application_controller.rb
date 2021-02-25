@@ -43,9 +43,12 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def redirect_if_not_authorized
-      flash[:error] = "You are not authorized"
-      redirect "/posts"
+    def redirect_if_not_authorized(id)
+
+      if current_user.id != id
+        flash[:error] = "You are not authorized"
+        redirect "/posts"
+      end
     end
     
   end
